@@ -1,9 +1,21 @@
+import keycloak from "@/config/keycloak";
+import { useState } from "react";
+
 const useAuth = () => {
-  const login = async (email, password) => {
-    console.log("Logging in with:", { email, password });
+  const [authenticated, setAuthenticated] = useState(false);
+
+  const login = () => {
+    keycloak
+      .init({ onLoad: "login-required" })
+      .then((authenticated) => {
+        setAuthenticated(authenticated);
+      })
+      .catch(() => {
+        console.log("Failed to initialize Keycloak");
+      });
   };
 
-  return { login };
+  return { authenticated, login };
 };
 
 export { useAuth };
