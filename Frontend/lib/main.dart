@@ -19,18 +19,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
       theme: ThemeData(
-        colorScheme: const ColorScheme(
-          surface: Color(0xfffafafa),
-          onSurface: Colors.black,
-          brightness: Brightness.light,
-          primary: Colors.orangeAccent,
-          onPrimary: Colors.black,
-          secondary: Color(0xfffdf6d7),
-          onSecondary: Colors.black,
-          error: Colors.red,
-          onError: Colors.white,
-        ),
-        useMaterial3: false,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
       home: MainPage(),
     );
@@ -50,27 +40,27 @@ class MainPage extends StatelessWidget {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        bottomNavigationBar: NavigationBar(
-            selectedIndex: navbarController.currentIndex.value,
-            onDestinationSelected: (value) => {navbarController.onItemTapped(value)},
-            destinations: const [
-              NavigationDestination(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.favorite),
-                label: 'Favorites',
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-              ),
-            ]),
-        body: <Widget>[
-          const HomePage(),
-          const FavouritesPage(),
-          const SettingsPage(),
-        ][1]);
+        bottomNavigationBar: Obx(() => NavigationBar(
+                selectedIndex: navbarController.currentIndex.value,
+                onDestinationSelected: (value) => {navbarController.onItemTapped(value)},
+                destinations: const [
+                  NavigationDestination(
+                    icon: Icon(Icons.home),
+                    label: 'Home',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.favorite),
+                    label: 'Favorites',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.settings),
+                    label: 'Settings',
+                  ),
+                ])),
+        body: Obx(() => <Widget>[
+              const HomePage(),
+              const FavouritesPage(),
+              const SettingsPage(),
+            ][navbarController.currentIndex.value]));
   }
 }
