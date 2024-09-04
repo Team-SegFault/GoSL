@@ -1,11 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/hooks/useAuth";
-
+import { useKeycloak } from "@react-keycloak/web";
 const LoginPage = () => {
-  const { login } = useAuth();
+  const { keycloak } = useKeycloak();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Button onClick={login}>Login with Keycloak</Button>
+      <Button
+        onClick={() => {
+          keycloak.login();
+        }}
+      >
+        Login with Keycloak
+      </Button>
     </div>
   );
 };
