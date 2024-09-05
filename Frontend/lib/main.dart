@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
       theme: ThemeData(
+        primaryColor: const Color(0xFFF7C04A),
         scaffoldBackgroundColor: const Color(0xFFFAFAFA),
         textTheme: GoogleFonts.urbanistTextTheme().copyWith(
           titleLarge: GoogleFonts.playfairDisplay(),
