@@ -24,9 +24,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFFAFAFA),
         textTheme: GoogleFonts.urbanistTextTheme().copyWith(
-          titleLarge: GoogleFonts.inter(),
-          titleMedium: GoogleFonts.inter(),
-          titleSmall: GoogleFonts.inter(),
+          titleLarge: GoogleFonts.playfairDisplay(),
+          titleMedium: GoogleFonts.playfairDisplay(),
+          titleSmall: GoogleFonts.playfairDisplay(),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
