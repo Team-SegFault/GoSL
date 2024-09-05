@@ -30,8 +30,8 @@ class _FormStepperState extends State<FormStepper> {
         activeLineColor: Colors.grey[200],
         unreachedLineColor: Colors.grey[200]
       ),
-      activeStepTextColor: Colors.black54,
       unreachedStepBackgroundColor: Colors.grey,
+      activeStepTextColor: Colors.black54,
       internalPadding: 0,
       showLoadingAnimation: false,
       stepRadius: 6,
@@ -48,13 +48,16 @@ class _FormStepperState extends State<FormStepper> {
             ),
           ),
           // title: activeStep == index ? _titles[index] : null,
-            customTitle: Text(
-              _titles[index],
-              style: TextStyle(
-                color: activeStep == index ? Colors.black : Colors.grey[200],
-                fontSize: 10,
+            customTitle: activeStep == index ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                _titles[index],
+                style: TextStyle(
+                  color: activeStep == index ? Colors.black : Colors.grey[200],
+                  fontSize: 10,
+                ),
               ),
-            ),
+            ) : null,
           topTitle: false
         );
       }),
