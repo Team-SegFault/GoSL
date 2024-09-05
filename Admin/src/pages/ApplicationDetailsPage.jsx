@@ -1,16 +1,17 @@
-import PropTypes from "prop-types";
+import VisaApplication from "@/components/visa-application";
+import { useLocation } from "react-router-dom";
 
-const ApplicationDetailsPage = ({ applicationId }) => {
+const ApplicationDetailsPage = () => {
+  const location = useLocation();
+  const { applicationId } = location.state || {};
+
   return (
     <div>
       <h1>Application Details</h1>
       <p>Application ID: {applicationId}</p>
+      <VisaApplication />
     </div>
   );
-};
-
-ApplicationDetailsPage.propTypes = {
-  applicationId: PropTypes.string.isRequired,
 };
 
 export default ApplicationDetailsPage;

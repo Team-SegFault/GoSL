@@ -10,10 +10,7 @@ const App = () => {
       <div>
         <Routes>
           <Route path={DASHBOARD_ROUTE} element={<DashboardPage />} />
-          <Route
-            path={DETAILS_ROUTE}
-            element={<ApplicationDetailsPage applicationId="1" />}
-          />
+          <Route path={DETAILS_ROUTE} element={<ApplicationDetailsPage />} />
         </Routes>
       </div>
     </Router>
