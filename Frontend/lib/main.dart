@@ -1,3 +1,4 @@
+import 'package:GOSL/theme.dart';
 import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,20 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
-      theme: ThemeData(
-        colorScheme: const ColorScheme(
-          surface: Color(0xfffafafa),
-          onSurface: Colors.black,
-          brightness: Brightness.light,
-          primary: Colors.orangeAccent,
-          onPrimary: Colors.black,
-          secondary: Color(0xfffdf6d7),
-          onSecondary: Colors.black,
-          error: Colors.red,
-          onError: Colors.white,
-        ),
-        useMaterial3: false,
-      ),
+      theme: theme,
       home: const VisaApplicationPage(),
     );
   }
