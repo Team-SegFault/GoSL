@@ -1,3 +1,5 @@
+import { StatusBadge } from "./status-badge";
+
 const columns = [
   {
     header: "Name",
@@ -14,6 +16,11 @@ const columns = [
   {
     header: "Status",
     accessorKey: "status",
+    cell: ({ row }) => {
+      const status = row.getValue("status");
+      console.log("status", status);
+      return <StatusBadge status={status} />;
+    },
   },
 ];
 

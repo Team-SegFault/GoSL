@@ -9,6 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import columns from "./columns";
+import { ApplicationStatus } from "@/lib/status.enum";
 
 // Sample Data (This will be fetched from the backend in your real implementation)
 const visaApplicationsData = [
@@ -86,10 +87,11 @@ const Dashboard = () => {
             <SelectValue placeholder="Filter by Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Pending">Pending</SelectItem>
-            <SelectItem value="Under Review">Under Review</SelectItem>
-            <SelectItem value="Approved">Approved</SelectItem>
-            <SelectItem value="Denied">Denied</SelectItem>
+            {Object.values(ApplicationStatus).map((status) => (
+              <SelectItem key={status} value={status}>
+                {status}
+              </SelectItem>
+            ))}
           </SelectContent>
         </Select>
 
