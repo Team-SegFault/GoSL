@@ -100,6 +100,7 @@ export function DataTable({ columns, data, onRowClick }) {
                   onClick={() => {
                     onRowClick(row);
                   }}
+                  className="hover:cursor-pointer"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
