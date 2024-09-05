@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import keycloak from "./keycloak";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
+import { ThemeProvider } from "@/context/theme";
 
 createRoot(document.getElementById("root")).render(
   <ReactKeycloakProvider
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
     }}
   >
     <StrictMode>
-      <App />
+      <ThemeProvider defaultTheme="light">
+        <App />
+      </ThemeProvider>
     </StrictMode>
   </ReactKeycloakProvider>,
 );
