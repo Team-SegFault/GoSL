@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "date": "2024-09-01",
+    "country": "USA",
+    "status": "Pending"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "date": "2024-09-02",
+    "country": "Canada",
+    "status": "Under Review"
+  },
+  {
+    "id": 3,
+    "name": "Alice Johnson",
+    "date": "2024-08-28",
+    "country": "Australia",
+    "status": "Approved"
+  },
+  {
+    "id": 4,
+    "name": "Robert Brown",
+    "date": "2024-09-03",
+    "country": "UK",
+    "status": "Pending"
+  },
+  {
+    "id": 5,
+    "name": "Emily Davis",
+    "date": "2024-08-25",
+    "country": "Germany",
+    "status": "Denied"
+  },
+  {
+    "id": 6,
+    "name": "Michael Wilson",
+    "date": "2024-09-05",
+    "country": "South Africa",
+    "status": "Under Review"
+  },
+  {
+    "id": 7,
+    "name": "Sophia Taylor",
+    "date": "2024-09-01",
+    "country": "New Zealand",
+    "status": "Pending"
+  },
+  {
+    "id": 8,
+    "name": "David Anderson",
+    "date": "2024-08-30",
+    "country": "Brazil",
+    "status": "Approved"
+  },
+  {
+    "id": 9,
+    "name": "Jessica Moore",
+    "date": "2024-08-29",
+    "country": "India",
+    "status": "Under Review"
+  },
+  {
+    "id": 10,
+    "name": "Daniel Martinez",
+    "date": "2024-09-04",
+    "country": "Mexico",
+    "status": "Denied"
+  },
+  {
+    "id": 11,
+    "name": "Natalie Robinson",
+    "date": "2024-08-27",
+    "country": "France",
+    "status": "Pending"
+  },
+  {
+    "id": 12,
+    "name": "Lucas Clark",
+    "date": "2024-09-01",
+    "country": "Italy",
+    "status": "Approved"
+  },
+  {
+    "id": 13,
+    "name": "Sarah Lee",
+    "date": "2024-08-31",
+    "country": "Japan",
+    "status": "Under Review"
+  },
+  {
+    "id": 14,
+    "name": "Anthony Walker",
+    "date": "2024-09-02",
+    "country": "South Korea",
+    "status": "Denied"
+  },
+  {
+    "id": 15,
+    "name": "Grace Hall",
+    "date": "2024-09-01",
+    "country": "Spain",
+    "status": "Pending"
+  }
+]

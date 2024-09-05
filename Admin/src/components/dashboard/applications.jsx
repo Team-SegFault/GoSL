@@ -10,32 +10,7 @@ import {
 } from "@/components/ui/select";
 import columns from "./columns";
 import { ApplicationStatus } from "@/lib/status.enum";
-
-// Sample Data (This will be fetched from the backend in your real implementation)
-const visaApplicationsData = [
-  {
-    id: 1,
-    name: "John Doe",
-    date: "2024-09-01",
-    country: "USA",
-    status: "Pending",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    date: "2024-09-02",
-    country: "Canada",
-    status: "Under Review",
-  },
-  {
-    id: 3,
-    name: "Alice Johnson",
-    date: "2024-08-28",
-    country: "Australia",
-    status: "Approved",
-  },
-  // Add more data as needed
-];
+import visaApplicationsData from "./data.json";
 
 const Dashboard = () => {
   const [applications, setApplications] = useState(visaApplicationsData);
