@@ -3,3 +3,8 @@ include/
 lib/
 lib64
 *.cfg
+*.env
+__init__.py
+**/__pycache__/
+*.sqlite3
+**/media/**
