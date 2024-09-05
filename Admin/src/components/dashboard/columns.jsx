@@ -1,4 +1,6 @@
 import { StatusBadge } from "./status-badge";
+import { Button } from "@/components/ui/button";
+import { ArrowUpDown } from "lucide-react";
 
 const columns = [
   {
@@ -6,7 +8,17 @@ const columns = [
     accessorKey: "name",
   },
   {
-    header: "Submission Date",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Submission Date
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     accessorKey: "date",
   },
   {
