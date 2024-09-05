@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class SettingsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Settings',
+                'Home',
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -21,7 +21,7 @@ class SettingsPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Text(
-                'Welcome to the settings page!',
+                'Welcome to the home page!',
                 style: TextStyle(
                   fontSize: 16,
                 ),
