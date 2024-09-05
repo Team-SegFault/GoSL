@@ -8,7 +8,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-4">Visa Application Dashboard</h1>
+      <h1 className="text-xl font-bold">Visa Application Dashboard</h1>
       {/* Data Table */}
       <DataTable
         columns={columns}

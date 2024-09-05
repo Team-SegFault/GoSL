@@ -2,6 +2,7 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
+  getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
 } from "@tanstack/react-table";
@@ -15,10 +16,15 @@ import {
 } from "@/components/ui/table";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { DatePicker } from "./datepicker";
+import moment from "moment";
 
 // eslint-disable-next-line react/prop-types
 export function DataTable({ columns, data, onRowClick }) {
   const [sorting, setSorting] = useState([]);
+  const [columnFilters, setColumnFilters] = useState([]);
 
   const table = useReactTable({
     data,
@@ -27,13 +33,46 @@ export function DataTable({ columns, data, onRowClick }) {
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
       sorting,
+      columnFilters,
     },
   });
 
   return (
     <div>
+      <div className="flex items-center py-4">
+        <div className="flex gap-2 justify-end w-full">
+          <Input
+            placeholder="Search Country..."
+            value={table.getColumn("country")?.getFilterValue() ?? ""}
+            onChange={(event) =>
+              table.getColumn("country")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+          <DatePicker
+            date={table.getColumn("date")?.getFilterValue() ?? null}
+            setDate={(date) => {
+              table
+                .getColumn("date")
+                ?.setFilterValue(
+                  date ? moment(date).format("YYYY-MM-DD") : undefined,
+                );
+            }}
+          />
+          <Button
+            variant="secondary"
+            onClick={() => {
+              table.resetColumnFilters();
+            }}
+          >
+            Reset Filters
+          </Button>
+        </div>
+      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
