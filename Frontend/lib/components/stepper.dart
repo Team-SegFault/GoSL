@@ -38,15 +38,13 @@ class _FormStepperState extends State<FormStepper> {
       showStepBorder: false,
       steps: List.generate(_titles.length, (index) {
         return EasyStep(
-          customStep: Container(
+          customStep: CircleAvatar(
+            radius: 8,
+            backgroundColor: Colors.transparent,
             child: CircleAvatar(
-              radius: 8,
-              backgroundColor: Colors.transparent,
-              child: CircleAvatar(
-                radius: 6,
-                backgroundColor:
-                    activeStep >= index ? Colors.orangeAccent : Colors.grey[200],
-              ),
+              radius: 6,
+              backgroundColor:
+                  activeStep >= index ? Colors.orangeAccent : Colors.grey[200],
             ),
           ),
           // title: activeStep == index ? _titles[index] : null,

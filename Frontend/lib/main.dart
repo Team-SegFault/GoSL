@@ -15,12 +15,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xeec052ff),
-            surface: const Color(0xfafafaff)),
-        useMaterial3: true,
+        colorScheme: const ColorScheme(
+          surface: Color(0xfffafafa),
+          onSurface: Colors.black,
+          brightness: Brightness.light,
+          primary: Colors.orangeAccent,
+          onPrimary: Colors.black,
+          secondary: Color(0xfffdf6d7),
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.white,
+        ),
+        useMaterial3: false,
       ),
-
       home: const VisaApplicationPage(),
     );
   }
@@ -28,7 +35,6 @@ class MyApp extends StatelessWidget {
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key, required this.title});
-
 
   final String title;
 
