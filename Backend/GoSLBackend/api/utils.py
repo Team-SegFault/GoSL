@@ -1,7 +1,8 @@
 from django.core.mail import send_mail
 
-def send_mail(subject, message, email):
+def send_mail(email):
     # Set the email details
+    subject = 'Visa Application Approved'
     from_email = 'ravinduhiran26@gmail.com'
     recipient_list = [email]
     
