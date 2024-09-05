@@ -7,27 +7,48 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffffffff),
       body: ListView(
         children: [
           Container(
             padding: const EdgeInsets.all(20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 200,), // to do - hero should be added
+                SizedBox(
+                  height: 200,
+                ), // to do - hero should be added
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       '🇱🇰 Go',
-                      style: GoogleFonts.poppins(fontSize: 40),
+                      style: GoogleFonts.poppins(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFFF7C04A)),
                     ),
-                    Text('SL',
-                    style: GoogleFonts.poppins(fontSize: 40,fontWeight:FontWeight.w700),)
+                    Text(
+                      'SL',
+                      style: GoogleFonts.poppins(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFFF7C04A)),
+                    )
                   ],
                 ),
                 SizedBox(height: 20),
-                Text('traveing Sri Lanka made easier'),
-                SizedBox(height: 40,),
+                Container(
+                  alignment: Alignment.center,
+                  width: 400,
+                  child: Text(
+                    'traveing Sri Lanka made easier',
+                    style: GoogleFonts.poppins(fontSize: 18),
+                  ),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'Enter Username',
