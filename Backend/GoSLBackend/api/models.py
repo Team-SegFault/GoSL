@@ -20,7 +20,7 @@ class VisaApplication(models.Model):
     passport_number = models.CharField(max_length=20)
     passport_issue_date = models.DateField()
     passport_expiry_date = models.DateField()
-    passport_photo = models.ImageField(upload_to='media/images', default='media/images/default.jpg')
+    passport_photo = models.ImageField(upload_to='images', default='images/default.jpg')
     visa_type_reference = models.ForeignKey('VisaType', on_delete=models.CASCADE, related_name='visa_type_reference')
     visa_start_date = models.DateField()
 
