@@ -7,7 +7,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: Color(0xfffafafa),
       body: ListView(
         children: [
           Container(
@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '🇱🇰 Go',
+                      '🇱🇰Go',
                       style: GoogleFonts.poppins(
                           fontSize: 40,
                           fontWeight: FontWeight.w500,
@@ -37,32 +37,49 @@ class LoginPage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 Container(
                   alignment: Alignment.center,
-                  width: 400,
+                  width: 200,
                   child: Text(
                     'traveing Sri Lanka made easier',
                     style: GoogleFonts.poppins(fontSize: 18),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 80,
                 ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Enter Username',
-                    border: OutlineInputBorder(),
-                  ),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 25,horizontal: 20),
+                  color: Colors.white,
+                  child: Column(children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          labelText: 'Enter username',
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              borderSide: BorderSide(color: Color(0xFFBABABA))),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              borderSide:
+                                  BorderSide(color: Color(0xFFF7C04A)))),
+                    ),
+                    SizedBox(height: 30),
+                    TextField(
+                      decoration: InputDecoration(
+                          labelText: 'Enter password',
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              borderSide: BorderSide(color: Color(0xFFBABABA))),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              borderSide:
+                                  BorderSide(color: Color(0xFFF7C04A)))),
+                      obscureText: true,
+                    )
+                  ]),
                 ),
-                SizedBox(height: 20),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Enter Username',
-                    border: OutlineInputBorder(),
-                  ),
-                  obscureText: true,
-                )
               ],
             ),
           ),
