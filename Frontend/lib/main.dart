@@ -1,3 +1,4 @@
+import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,10 +15,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xeec052ff),
+            surface: const Color(0xfafafaff)),
         useMaterial3: true,
       ),
-      home: const MainPage(title: 'Flutter Demo Home Page'),
+
+      home: const VisaApplicationPage(),
     );
   }
 }
