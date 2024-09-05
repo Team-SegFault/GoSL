@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'SLGo',
+      debugShowCheckedModeBanner: false,
+      title: 'GoSL',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -26,9 +27,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class MainPage extends StatelessWidget {
   MainPage({super.key});
   final navbarController = Get.put(NavbarController());
+
 
   @override
   Widget build(BuildContext context) {
