@@ -30,7 +30,6 @@ const columns = [
     accessorKey: "status",
     cell: ({ row }) => {
       const status = row.getValue("status");
-      console.log("status", status);
       return <StatusBadge status={status} />;
     },
   },
