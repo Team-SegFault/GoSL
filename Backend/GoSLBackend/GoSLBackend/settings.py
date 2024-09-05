@@ -125,3 +125,8 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+SENDGRID_API_KEY = "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"
+SENDGRID_SANDBOX_MODE_IN_DEBUG=False
