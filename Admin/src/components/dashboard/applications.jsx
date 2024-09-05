@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
+import { DataTable } from "@/components/common/datatable";
 import {
   Select,
   SelectContent,
@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import columns from "./columns";
 
 // Sample Data (This will be fetched from the backend in your real implementation)
 const visaApplicationsData = [
@@ -72,7 +73,7 @@ const Dashboard = () => {
       <h1 className="text-xl font-bold">Visa Application Dashboard</h1>
 
       {/* Filters */}
-      <div className="my-4 flex justify-between">
+      <div className="my-4 flex justify-between gap-2">
         <Input
           placeholder="Search by applicant name"
           value={searchTerm}
@@ -89,7 +90,6 @@ const Dashboard = () => {
             <SelectItem value="Under Review">Under Review</SelectItem>
             <SelectItem value="Approved">Approved</SelectItem>
             <SelectItem value="Denied">Denied</SelectItem>
-            <SelectItem value="">All</SelectItem>
           </SelectContent>
         </Select>
 
@@ -106,26 +106,7 @@ const Dashboard = () => {
       </div>
 
       {/* Data Table */}
-      <Table>
-        <thead>
-          <tr>
-            <th>Applicant Name</th>
-            <th>Submission Date</th>
-            <th>Country</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {applications.map((application) => (
-            <tr key={application.id}>
-              <td>{application.name}</td>
-              <td>{application.date}</td>
-              <td>{application.country}</td>
-              <td>{application.status}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <DataTable columns={columns} data={applications} />
     </div>
   );
 };
