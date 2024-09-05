@@ -7,6 +7,13 @@ import {
   getSortedRowModel,
 } from "@tanstack/react-table";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Table,
   TableBody,
   TableCell,
@@ -20,6 +27,7 @@ import { Input } from "@/components/ui/input";
 import { DatePicker } from "./datepicker";
 import moment from "moment";
 import { Paginator } from "./pagination";
+import { ApplicationStatus } from "@/lib/status.enum";
 
 // eslint-disable-next-line react/prop-types
 export function DataTable({ columns, data, onRowClick }) {
@@ -63,6 +71,27 @@ export function DataTable({ columns, data, onRowClick }) {
                 );
             }}
           />
+
+          <Select
+            onValueChange={(v) => {
+              table.getColumn("status")?.setFilterValue(v);
+            }}
+          >
+            <SelectTrigger className="w-[180px]">
+              <SelectValue
+                value={table.getColumn("status")}
+                placeholder="Filter by Status"
+              />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.values(ApplicationStatus).map((status) => (
+                <SelectItem key={status} value={status}>
+                  {status}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
           <Button
             variant="secondary"
             onClick={() => {
