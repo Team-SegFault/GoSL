@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import ItemListCreate, ItemDetail
+from .views import VisaTypeListCreate, VisaTypeDetail, VisaApplicationListCreate, VisaApplicationDetail
 
 urlpatterns = [
-    path('items/', ItemListCreate.as_view(), name='item-list-create'),
-    path('items/<int:pk>/', ItemDetail.as_view(), name='item-detail'),
+    path('visa-types/', VisaTypeListCreate.as_view(), name='visa-type-list-create'),
+    path('visa-types/<int:pk>/', VisaTypeDetail.as_view(), name='visa-type-detail'),
+    path('visa-applications/', VisaApplicationListCreate.as_view(), name='visa-application-list-create'),
+    path('visa-applications/<int:pk>/', VisaApplicationDetail.as_view(), name='visa-application-detail'),
 ]

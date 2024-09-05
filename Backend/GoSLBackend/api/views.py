@@ -2,13 +2,24 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import generics
-from .models import Item
-from .serializers import ItemSerializer
+from .models import  VisaApplication, VisaType
+from .serializers import VisaApplicationSerializer, VisaTypeSerializer
 
-class ItemListCreate(generics.ListCreateAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+class VisaTypeListCreate(generics.ListCreateAPIView):
+    queryset = VisaType.objects.all()
+    serializer_class = VisaTypeSerializer
 
-class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+
+class VisaTypeDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = VisaType.objects.all()
+    serializer_class = VisaTypeSerializer
+
+
+class VisaApplicationListCreate(generics.ListCreateAPIView):
+    queryset = VisaApplication.objects.all()
+    serializer_class = VisaApplicationSerializer
+
+
+class VisaApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = VisaApplication.objects.all()
+    serializer_class = VisaApplicationSerializer
