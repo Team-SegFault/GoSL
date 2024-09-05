@@ -194,7 +194,7 @@ class VisaSimplified extends StatelessWidget {
             style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
           ),
           const Gap(8),
-          SizedBox(
+          const SizedBox(
               width: double.infinity,
               child: AppButton(text: "Apply Visa")),
         ],
