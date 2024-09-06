@@ -15,7 +15,7 @@ from .serializers import VisaApplicationSerializer, VisaTypeSerializer
 
 from django.contrib.auth import authenticate, login, logout
 from .serializers import LoginSerializer, UserRegistrationSerializer, PersonDetailSerializer, PersonUpdateSerializer, CommonSurfSerializer
-from .permissions import IsAuthenticated, AccessOwnAccountPermission
+from .permissions import IsAuthenticated, AccessOwnAccountPermission, IsAdminUser
 from .models import Person
 from django.views.decorators.csrf import csrf_exempt
 
@@ -34,13 +34,17 @@ class VisaTypeDetail(generics.RetrieveUpdateDestroyAPIView):
 class VisaApplicationListCreate(generics.ListCreateAPIView):
     queryset = VisaApplication.objects.all()
     serializer_class = VisaApplicationSerializer
-    # permission_classes = [KeyCloakOfficerPermission]
 
 
-class VisaApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
+class VisaApplicationDetail(generics.RetrieveAPIView):
     queryset = VisaApplication.objects.all()
     serializer_class = VisaApplicationSerializer
 
+
+class VisaApplicationUpdateStatus(generics.UpdateAPIView):
+    queryset = VisaApplication.objects.all()
+    serializer_class = VisaApplicationSerializer
+    # permission_classes = [IsAdminUser]
 
 
 class DestinationSurfView(generics.ListCreateAPIView):
@@ -114,7 +118,7 @@ class CustomLoginView(APIView):
 
             if user and user.username == username:    # If credentials are valid(match)
                 login(request, user)
-                return Response({'message': f'Welcome, {user.name}!'}, status=status.HTTP_200_OK)
+                return Response({'message': f'Welcome, {user.name}!', 'user_id' : user.user_id}, status=status.HTTP_200_OK)
 
             else:       # If credentials are invalid(do not match)
                 return Response({'message': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)

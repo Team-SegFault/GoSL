@@ -16,6 +16,10 @@ class IsAuthenticated(IsAuthenticated):
     pass
     
 
+class IsAdminUser(BasePermission):
+    def has_permission(self, request, view):
+        return request.user and request.user.is_staff
+
 # class KeyCloakOfficerPermission(BasePermission):
 #     required_role = 'officer'
 

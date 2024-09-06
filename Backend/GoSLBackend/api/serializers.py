@@ -27,6 +27,20 @@ class VisaApplicationSerializer(serializers.ModelSerializer):
                 self.fields[field].read_only = True
 
 
+class VisaApplicationUpdateStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VisaApplication
+        fields = ['isApproved', 'isRejected', 'isProccessing', 'isPending']
+
+    def update(self, instance, validated_data):
+        instance.isApproved = validated_data.get('isApproved', instance.isApproved)
+        instance.isRejected = validated_data.get('isRejected', instance.isRejected)
+        instance.isProccessing = validated_data.get('isProccessing', instance.isProccessing)
+        instance.isPending = validated_data.get('isPending', instance.isPending)
+        instance.save()
+        return instance
+
+
 # Common Surf Serializer
 class CommonSurfSerializer(serializers.Serializer):
     name = serializers.CharField()
