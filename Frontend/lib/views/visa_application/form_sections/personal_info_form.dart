@@ -25,6 +25,7 @@ List<Widget> personalInfoFields  = [
     decoration: const InputDecoration(labelText: 'Date of Birth'),
     inputType: InputType.date,
     firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
   ),
   FormBuilderDropdown(
     name: 'occupation',
