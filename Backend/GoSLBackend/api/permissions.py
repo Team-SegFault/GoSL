@@ -2,7 +2,6 @@ from rest_framework.permissions import IsAuthenticated, BasePermission
 import jwt
 from django.conf import settings
 from rest_framework.exceptions import AuthenticationFailed
-    
 
 class KeyCloakOfficerPermission(BasePermission):
     required_role = 'officer'
@@ -11,7 +10,7 @@ class KeyCloakOfficerPermission(BasePermission):
         # Return False if the Authorization header is not present
         if "Authorization" not in request.headers:
             return False
-        
+
         # Get the token from the Authorization header
         auth_token = request.headers.get("Authorization", "").split("Bearer ")[1]
 
