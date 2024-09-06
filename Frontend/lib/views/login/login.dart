@@ -51,12 +51,15 @@ class LoginPage extends StatelessWidget {
                   height: 80,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 25,horizontal: 20),
-                  color: Colors.white,
+                  padding: EdgeInsets.only(left: 25,right: 25,top: 25,bottom: 15),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(35.0),
+                  ),
                   child: Column(children: [
                     TextField(
                       decoration: InputDecoration(
-                          labelText: 'Enter username',
+                          labelText: ' Username',
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16),
                               borderSide: BorderSide(color: Color(0xFFBABABA))),
@@ -68,7 +71,7 @@ class LoginPage extends StatelessWidget {
                     SizedBox(height: 30),
                     TextField(
                       decoration: InputDecoration(
-                          labelText: 'Enter password',
+                          labelText: ' Password',
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(16),
                               borderSide: BorderSide(color: Color(0xFFBABABA))),
@@ -77,7 +80,45 @@ class LoginPage extends StatelessWidget {
                               borderSide:
                                   BorderSide(color: Color(0xFFF7C04A)))),
                       obscureText: true,
-                    )
+                    ),
+                    SizedBox(
+                      height: 3,
+                    ),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        'Forget Password',
+                        textAlign: TextAlign.end,
+                        style: GoogleFonts.poppins(color: Color(0xFFBABABA),fontSize: 12),
+                      ),
+                    ),
+                    Container(height: 10,),
+                    SizedBox(
+                      width: 450,
+                        height: 50,
+                        child:ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        backgroundColor: Color(0xFFF7C04A),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                      ),
+                      child: Text('Login',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black, // Set text color here
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500// Set font size if needed
+                        ),
+                      ),
+                    )),
+                    Container(height: 10,),
+                    Text(
+                      'Read our Privacy Policy and Terms of Use',
+                      textAlign: TextAlign.end,
+                      style: GoogleFonts.poppins(color: Color(0xFFBABABA),fontSize: 10),
+                    ),
                   ]),
                 ),
               ],
