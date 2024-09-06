@@ -62,7 +62,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                   child: DynamicForm(
                     formKey: _pageFormKey[0]!,
                     fields: personalInfoFields(
-                        initialValues: _visaApplicationData[0] ?? {},
+                      initialValues: _visaApplicationData[0] ?? {},
                     ),
                     onActionButtonClick: goToNextPage,
                     isLastStep: false,
@@ -72,7 +72,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                   child: DynamicForm(
                     formKey: _pageFormKey[1]!,
                     fields: contactDetailsFields(
-                        initialValues: _visaApplicationData[1] ?? {},
+                      initialValues: _visaApplicationData[1] ?? {},
                     ),
                     onActionButtonClick: goToNextPage,
                     isLastStep: false,
@@ -136,9 +136,61 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
 
   Future postVisaApplication() async {
     // Post visa application data to the server
+    await http.post(
+      Uri.parse('https://example.com/api/visa_application'),
+      body: jsonEncode(_visaApplicationData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const ApplicationSuccessPage()),
     );
-
   }
-}
+
+  dynamic prepareRequestBody(visaApplicationData) {
+    final personalInfo = visaApplicationData[0];
+    final contactDetails = visaApplicationData[1];
+    final passportDetails = visaApplicationData[2];
+    final arrivalDetails = visaApplicationData[3];
+
+
+    // "name": "John Doe",
+    // "gender": "Male",
+    // "occupation": "Employed",
+    // "civil_status": "Married",
+    // "date_of_birth": "2000-01-01",
+    // "passport_size_photo": "http://localhost:8000/media/images/default_h6l8pVr.jpg",
+    // "passport_issue_country": "United Kingdom",
+    // "passport_number": "12342CX2342K",
+    // "passport_issue_date": "2022-01-01",
+    // "passport_expiry_date": "2030-01-01",
+    // "passport_bio_page": "http://localhost:8000/media/passport_bio/ray-so-export_hK4rZdR.png",
+    // "phone": "+941134293423",
+    // "address": "No 1, Help Me Avenue, New York, USA.",
+    // "email": "hello@example.com",
+    // "visa_duration": 1,
+    // "visa_start_date": "2024-12-01",
+    // "past_travel_history": "None",
+
+    return {
+      'name': personalInfo['name'],
+      'gender': personalInfo['gender'],
+      'occupation': personalInfo['occupation'],
+      'civil_status': personalInfo['civil_status'],
+      'date_of_birth': personalInfo['date_of_birth'],
+      'passport_size_photo': personalInfo['passport_size_photo'],
+      'passport_issue_country': passportDetails['passport_issue_country'],
+      'passport_number': passportDetails['passport_number'],
+      'passport_issue_date': passportDetails['passport_issue_date'],
+      'passport_expiry_date': passportDetails['passport_expiry_date'],
+      'passport_bio_page': passportDetails['passport_bio_page'],
+      'phone': contactDetails['phone'],
+      'address': contactDetails['address'],
+      'email': contactDetails['email'],
+      'visa_duration': arrivalDetails['visa_duration'],
+      'visa_start_date': arrivalDetails['visa_start_date'],
+      'past_travel_history': arrivalDetails['past_travel_history'],
+    };
+}}

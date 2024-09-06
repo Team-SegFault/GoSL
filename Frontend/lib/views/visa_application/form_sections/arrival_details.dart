@@ -6,17 +6,17 @@ List<Widget> arrivalDetails({required initialValues}){
   return [
     // arrival date
     FormBuilderDateTimePicker(
-      name: 'arrivalDate',
+      name: 'visa_start_date',
+      initialValue: initialValues['visa_start_date'],
       decoration: const InputDecoration(labelText: 'Expected Arrival Date'),
       inputType: InputType.date,
-      initialValue: initialValues['arrivalDate'],
       initialDate: DateTime.now().add(const Duration(days: 1)),
       firstDate: DateTime.now(),
     ),
     // duration of stay in days
     FormBuilderTextField(
-      name: 'durationOfStay',
-      initialValue: initialValues['durationOfStay'],
+      name: 'visa_duration',
+      initialValue: initialValues['visa_duration'],
       valueTransformer: (value) => int.tryParse(value!),
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(),
@@ -29,8 +29,8 @@ List<Widget> arrivalDetails({required initialValues}){
     ),
     // travel history
     FormBuilderTextField(
-      name: 'travelHistory',
-      initialValue: initialValues['travelHistory'],
+      name: 'past_travel_history',
+      initialValue: initialValues['past_travel_history'],
       decoration: const InputDecoration(
         labelText: 'Travel History',
         helperText: 'Please provide a brief history of your travel',

@@ -43,6 +43,7 @@ dependencies:
   gap: ^3.0.1
   hugeicons: ^0.0.7
   form_builder_image_picker: ^4.1.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:

@@ -24,8 +24,8 @@ List<Widget> personalInfoFields({required initialValues}) {
           .toList(),
     ),
     FormBuilderDateTimePicker(
-      name: 'birthdate',
-      initialValue: initialValues['birthdate'],
+      name: 'date_of_birth',
+      initialValue: initialValues['date_of_birth'],
       decoration: const InputDecoration(labelText: 'Date of Birth'),
       inputType: InputType.date,
       firstDate: DateTime(1900),
@@ -68,8 +68,8 @@ List<Widget> personalInfoFields({required initialValues}) {
           .toList(),
     ),
     FormBuilderImagePicker(
-      name: 'photo',
-      initialValue: initialValues['photo'],
+      name: 'passport_size_photo',
+      initialValue: initialValues['passport_size_photo'],
       maxImages: 1,
       decoration: const InputDecoration(
           labelText: 'Passport sized Photo',
