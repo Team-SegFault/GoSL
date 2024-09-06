@@ -1,8 +1,9 @@
 from django.db import models
+from api.models import Person
 
 # Create your models here.
 class ChatMessage(models.Model):
-    user_id = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    user_id = models.ForeignKey(Person, on_delete=models.CASCADE)
     user_message = models.TextField()
     bot_response = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
