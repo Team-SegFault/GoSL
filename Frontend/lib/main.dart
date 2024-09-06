@@ -1,8 +1,11 @@
-import 'package:GOSL/controllers/navbar_controller.dart';
-import 'package:GOSL/views/favourites.dart';
-import 'package:GOSL/views/home.dart';
-import 'package:GOSL/views/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:GOSL/components/navbar.dart';
+import 'package:GOSL/controllers/navbar_controller.dart';
+import 'package:GOSL/views/mytrip.dart';
+import 'package:GOSL/views/home.dart';
+import 'package:GOSL/views/profileview.dart';
+import 'package:GOSL/views/wishlistview.dart';
+import 'package:GOSL/theme.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -18,18 +21,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: theme,
       home: MainPage(),
     );
   }
 }
 
+
 class MainPage extends StatelessWidget {
   MainPage({super.key});
   final navbarController = Get.put(NavbarController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,27 +42,12 @@ class MainPage extends StatelessWidget {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        bottomNavigationBar: Obx(() => NavigationBar(
-                selectedIndex: navbarController.currentIndex.value,
-                onDestinationSelected: (value) => {navbarController.onItemTapped(value)},
-                destinations: const [
-                  NavigationDestination(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  NavigationDestination(
-                    icon: Icon(Icons.favorite),
-                    label: 'Favorites',
-                  ),
-                  NavigationDestination(
-                    icon: Icon(Icons.settings),
-                    label: 'Settings',
-                  ),
-                ])),
+        bottomNavigationBar: const CustomNavBar(),
         body: Obx(() => <Widget>[
               const HomePage(),
-              const FavouritesPage(),
-              const SettingsPage(),
+              const MyTripPage(),
+              const WishListPage(),
+              const ProfilePage(),
             ][navbarController.currentIndex.value]));
   }
 }

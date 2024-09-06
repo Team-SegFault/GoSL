@@ -10,6 +10,7 @@ class VisaApplicationPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Visa Application'),
       ),
@@ -17,7 +18,7 @@ class VisaApplicationPage extends StatelessWidget{
         children: [
           const FormStepper(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
             child: PersonalInfoForm(),
           ),
         ],
