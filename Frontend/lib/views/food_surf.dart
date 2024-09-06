@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart'; // Ensure this import path is correct
 import 'package:GOSL/components/description_card.dart'; // Import the DescriptionCard
 
-class AnimalSurf extends StatelessWidget {
+class FoodSurf extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animal Tab Example',
+      title: 'Tab Bar Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,22 +29,22 @@ class _TabPageState extends State<TabPage> {
   // List of DescriptionCards
   final List<DescriptionCard> _views = [
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/bigSquirrel.png',
-      title: 'Big Squirrel',
-      description: 'The Sri Lankan big squirrel, or Giant Squirrel (Ratufa macroura), is a strikingly large rodent endemic to the island, distinguished by its vibrant fur and impressive size.',
-      extendedDescription: 'Inhabiting the lush rainforests and deciduous forests of Sri Lanka, this species plays a crucial role in its ecosystem as a seed disperser and a key part of the forest’s biodiversity.',
+      backgroundImage: 'assets/surf/food_surf/kottu.jpg',
+      title: 'Kottu',
+      description: 'A tasty blend of roti, vegetables, and spices.',
+      extendedDescription: 'Kottu is a Sri Lankan street food that’s both flavorful and satisfying.',
     ),
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/leapord.jpg',
-      title: 'Leopard',
-      description: 'The Sri Lankan leopard (Panthera pardus kotiya) is a critically endangered subspecies native to Sri Lanka, renowned for its elusive nature and striking rosette-patterned coat.',
-      extendedDescription: 'Found primarily in the island\'s dense forests and national parks, it is a top predator that helps maintain ecological balance by controlling prey populations and shaping the forest structure.',
+      backgroundImage: 'assets/surf/food_surf/milkRice.jpg',
+      title: 'Milk Rice',
+      description: 'A traditional dish of cooked rice in coconut milk.',
+      extendedDescription: 'Milk rice, or "kiribath", is a staple in Sri Lankan households, especially during celebrations.',
     ),
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/elephant.jpg',
-      title: 'Elephant',
-      description: 'The Sri Lankan elephant (Elephas maximus maximus) is a distinct subspecies of the Asian elephant, recognized for its larger size and unique characteristics, such as its relatively small ears compared to its African counterparts.',
-      extendedDescription: 'Native to Sri Lanka, these elephants play a crucial role in the island\'s ecosystem by dispersing seeds and maintaining forest habitats, but they face threats from habitat loss and human-wildlife conflict.',
+      backgroundImage: 'assets/surf/food_surf/hoppers.jpg',
+      title: 'Hoppers',
+      description: 'A crispy pancake with a soft, spongy center.',
+      extendedDescription: 'Hoppers are a unique Sri Lankan dish, perfect with curry or an egg at the center.',
     ),
     // Add more DescriptionCards as needed
   ];

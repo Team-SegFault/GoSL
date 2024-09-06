@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart'; // Ensure this import path is correct
 import 'package:GOSL/components/description_card.dart'; // Import the DescriptionCard
 
-class AnimalSurf extends StatelessWidget {
+class EventSurf extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animal Tab Example',
+      title: 'Event Tab Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,22 +29,22 @@ class _TabPageState extends State<TabPage> {
   // List of DescriptionCards
   final List<DescriptionCard> _views = [
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/bigSquirrel.png',
-      title: 'Big Squirrel',
-      description: 'The Sri Lankan big squirrel, or Giant Squirrel (Ratufa macroura), is a strikingly large rodent endemic to the island, distinguished by its vibrant fur and impressive size.',
-      extendedDescription: 'Inhabiting the lush rainforests and deciduous forests of Sri Lanka, this species plays a crucial role in its ecosystem as a seed disperser and a key part of the forest’s biodiversity.',
+      backgroundImage: 'assets/surf/event_surf/perahara.jpg',
+      title: 'Esala Perahara, Kandy',
+      description: 'The Esala Perahara, held annually in Kandy, Sri Lanka, is one of the most spectacular and revered Buddhist festivals, celebrated in honor of the Sacred Tooth Relic of the Buddha.',
+      extendedDescription: 'This grand procession features beautifully adorned elephants, traditional dancers, and drummers, creating a vibrant and colorful display of Sri Lankan cultural heritage.',
     ),
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/leapord.jpg',
-      title: 'Leopard',
-      description: 'The Sri Lankan leopard (Panthera pardus kotiya) is a critically endangered subspecies native to Sri Lanka, renowned for its elusive nature and striking rosette-patterned coat.',
-      extendedDescription: 'Found primarily in the island\'s dense forests and national parks, it is a top predator that helps maintain ecological balance by controlling prey populations and shaping the forest structure.',
+      backgroundImage: 'assets/surf/event_surf/Kirimadu.jpg',
+      title: 'Kimadu Shanthikarma',
+      description: 'Kirimadu Shanthikarmaya is a traditional Sri Lankan ritual held to seek blessings and ensure prosperity and harmony for the community.',
+      extendedDescription: 'This sacred event often includes offerings and prayers conducted by local priests to honor deities and invoke divine favor, reflecting the deep-rooted spiritual practices in Sri Lankan culture.',
     ),
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/elephant.jpg',
-      title: 'Elephant',
-      description: 'The Sri Lankan elephant (Elephas maximus maximus) is a distinct subspecies of the Asian elephant, recognized for its larger size and unique characteristics, such as its relatively small ears compared to its African counterparts.',
-      extendedDescription: 'Native to Sri Lanka, these elephants play a crucial role in the island\'s ecosystem by dispersing seeds and maintaining forest habitats, but they face threats from habitat loss and human-wildlife conflict.',
+      backgroundImage: 'assets/surf/event_surf/kovil.jpg',
+      title: 'Kovil Pooja',
+      description: 'Kovil Pooja refers to the worship and ceremonies conducted in Hindu temples (kovils) in Sri Lanka, where devotees perform rituals to honor and seek blessings from Hindu deities.',
+      extendedDescription: 'Kovil pooja is a significant event in the Tamil Hindu community, marked by devotional rituals and prayers.',
     ),
     // Add more DescriptionCards as needed
   ];

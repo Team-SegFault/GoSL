@@ -1,11 +1,13 @@
-import 'package:flutter/material.dart'; // Ensure this import path is correct
-import 'package:GOSL/components/description_card.dart'; // Import the DescriptionCard
+import 'package:flutter/material.dart'; 
+import 'package:GOSL/components/description_card.dart'; 
 
-class AnimalSurf extends StatelessWidget {
+class PlacesSurf extends StatelessWidget {
+  const PlacesSurf({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animal Tab Example',
+      title: 'Tab Bar Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,28 +31,28 @@ class _TabPageState extends State<TabPage> {
   // List of DescriptionCards
   final List<DescriptionCard> _views = [
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/bigSquirrel.png',
-      title: 'Big Squirrel',
-      description: 'The Sri Lankan big squirrel, or Giant Squirrel (Ratufa macroura), is a strikingly large rodent endemic to the island, distinguished by its vibrant fur and impressive size.',
-      extendedDescription: 'Inhabiting the lush rainforests and deciduous forests of Sri Lanka, this species plays a crucial role in its ecosystem as a seed disperser and a key part of the forest’s biodiversity.',
+      backgroundImage: 'assets/surf/places_surf/ellaBridge.jpg',
+      title: '9 Arches Bridge, Ella',
+      description: 'Commissioned under the British in the year 1921, the Nine Arch Bridge stands proudly, a testament to the engineering and architectural brilliance of the early 20th century.',
+      extendedDescription: 'Ideally placed between the Ella and Demodara railway station, those choosing to walk along the bridge will be presented with scenes of rolling hills and dense jungle to delight in.',
     ),
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/leapord.jpg',
-      title: 'Leopard',
-      description: 'The Sri Lankan leopard (Panthera pardus kotiya) is a critically endangered subspecies native to Sri Lanka, renowned for its elusive nature and striking rosette-patterned coat.',
-      extendedDescription: 'Found primarily in the island\'s dense forests and national parks, it is a top predator that helps maintain ecological balance by controlling prey populations and shaping the forest structure.',
+      backgroundImage: 'assets/surf/places_surf/Sigiriya.jpg',
+      title: 'Sigiriya, Matale',
+      description: 'Sigiriya, often referred to as the "Lion Rock," is an ancient rock fortress located in Sri Lanka, renowned for its stunning frescoes and intricate water gardens.',
+      extendedDescription: 'This UNESCO World Heritage Site, built during the 5th century by King Kasyapa, offers panoramic views from its summit and is a significant example of ancient urban planning and engineering.',
     ),
     const DescriptionCard(
-      backgroundImage: 'assets/surf/animal_surf/elephant.jpg',
-      title: 'Elephant',
-      description: 'The Sri Lankan elephant (Elephas maximus maximus) is a distinct subspecies of the Asian elephant, recognized for its larger size and unique characteristics, such as its relatively small ears compared to its African counterparts.',
-      extendedDescription: 'Native to Sri Lanka, these elephants play a crucial role in the island\'s ecosystem by dispersing seeds and maintaining forest habitats, but they face threats from habitat loss and human-wildlife conflict.',
+      backgroundImage: 'assets/surf/places_surf/galleFort.jpg',
+      title: 'Galle Fort, Galle',
+      description: 'Galle Fort, a historic fortified city on Sri Lanka\'s southwestern coast, showcases a unique blend of European and South Asian architectural styles, reflecting its colonial past.',
+      extendedDescription: 'Built by the Portuguese in the 16th century and later expanded by the Dutch, it is now a UNESCO World Heritage Site known for its well-preserved ramparts, charming streets, and vibrant cultural heritage.',
     ),
     // Add more DescriptionCards as needed
   ];
 
-  // Dynamically generate image paths from _views
-  List<String> get _imagePaths => _views.map((view) => view.backgroundImage).toList();
+  // Extract image paths from DescriptionCard list
+  late List<String> _imagePaths = _views.map((view) => view.backgroundImage).toList();
 
   void _onPageChanged(int index) {
     setState(() {

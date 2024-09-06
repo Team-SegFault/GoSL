@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:GOSL/components/surfbox.dart'; // Import your SurfBox component
+import 'animal_surf.dart';
+import 'food_surf.dart';
+import 'place_surf.dart';
+import 'event_surf.dart';
 
 class SurfPage extends StatelessWidget {
   // Define a list of configurations for SurfBox
   final List<Map<String, String>> surfBoxData = [
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
-    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'kotiya', 'text2': 'pulliya'},
+    {'imagePath': 'assets/surf/places_surf/Sigiriya.jpg', 'text1': 'Sights', 'text2': 'to take your breath away'},
+    {'imagePath': 'assets/surf/leapord.jpg', 'text1': 'Wild Life', 'text2': 'diverse and wonderful'},
+    {'imagePath': 'assets/surf/event_surf/Kirimadu.jpg', 'text1': 'Events', 'text2': 'nowhere else to see'},
+    {'imagePath': 'assets/surf/food_surf/kottu.jpg', 'text1': 'Spicy Food', 'text2': 'awaken your tastebuds'},
     // Add more items as needed
   ];
 
@@ -50,7 +50,6 @@ class SurfPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                for (int i = 0; i < surfBoxData.length; i += 2)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10), // Reduced space between rows
                     child: Row(
@@ -58,21 +57,46 @@ class SurfPage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: SurfBox(
-                            imagePath: surfBoxData[i]['imagePath']!,
-                            text1: surfBoxData[i]['text1']!,
-                            text2: surfBoxData[i]['text2']!,
+                            imagePath: surfBoxData[0]['imagePath']!,
+                            text1: surfBoxData[0]['text1']!,
+                            text2: surfBoxData[0]['text2']!,
+                            destinationPage: PlacesSurf(),
                           ),
                         ),
-                        if (i + 1 < surfBoxData.length)
                           SizedBox(width: 10), // Add spacing between columns
-                        if (i + 1 < surfBoxData.length)
                           Expanded(
                             child: SurfBox(
-                              imagePath: surfBoxData[i + 1]['imagePath']!,
-                              text1: surfBoxData[i + 1]['text1']!,
-                              text2: surfBoxData[i + 1]['text2']!,
+                              imagePath: surfBoxData[1]['imagePath']!,
+                              text1: surfBoxData[1]['text1']!,
+                              text2: surfBoxData[1]['text2']!,
+                              destinationPage: AnimalSurf(),
                             ),
+                          ),  
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10), // Reduced space between rows
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: SurfBox(
+                            imagePath: surfBoxData[2]['imagePath']!,
+                            text1: surfBoxData[2]['text1']!,
+                            text2: surfBoxData[2]['text2']!,
+                            destinationPage: EventSurf(),
                           ),
+                        ),
+                          SizedBox(width: 10), // Add spacing between columns
+                          Expanded(
+                            child: SurfBox(
+                              imagePath: surfBoxData[3]['imagePath']!,
+                              text1: surfBoxData[3]['text1']!,
+                              text2: surfBoxData[3]['text2']!,
+                              destinationPage: FoodSurf(),
+                            ),
+                          ),  
                       ],
                     ),
                   ),
