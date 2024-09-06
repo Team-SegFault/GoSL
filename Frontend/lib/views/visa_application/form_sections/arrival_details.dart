@@ -9,12 +9,14 @@ List<Widget> arrivalDetails({required initialValues}){
       name: 'arrivalDate',
       decoration: const InputDecoration(labelText: 'Expected Arrival Date'),
       inputType: InputType.date,
+      initialValue: initialValues['arrivalDate'],
       initialDate: DateTime.now().add(const Duration(days: 1)),
       firstDate: DateTime.now(),
     ),
     // duration of stay in days
     FormBuilderTextField(
       name: 'durationOfStay',
+      initialValue: initialValues['durationOfStay'],
       valueTransformer: (value) => int.tryParse(value!),
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(),
@@ -28,6 +30,7 @@ List<Widget> arrivalDetails({required initialValues}){
     // travel history
     FormBuilderTextField(
       name: 'travelHistory',
+      initialValue: initialValues['travelHistory'],
       decoration: const InputDecoration(
         labelText: 'Travel History',
         helperText: 'Please provide a brief history of your travel',

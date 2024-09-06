@@ -6,10 +6,12 @@ List<Widget> personalInfoFields({required initialValues}) {
   return [
     FormBuilderTextField(
       name: 'name',
+      initialValue: initialValues['name'],
       decoration: const InputDecoration(labelText: 'Name'),
     ),
     FormBuilderDropdown(
       name: 'gender',
+      initialValue: initialValues['gender'],
       decoration: const InputDecoration(labelText: 'Gender'),
       items: ['Male', 'Female', 'Other']
           .map(
@@ -23,6 +25,7 @@ List<Widget> personalInfoFields({required initialValues}) {
     ),
     FormBuilderDateTimePicker(
       name: 'birthdate',
+      initialValue: initialValues['birthdate'],
       decoration: const InputDecoration(labelText: 'Date of Birth'),
       inputType: InputType.date,
       firstDate: DateTime(1900),
@@ -30,6 +33,7 @@ List<Widget> personalInfoFields({required initialValues}) {
     ),
     FormBuilderDropdown(
       name: 'occupation',
+      initialValue: initialValues['occupation'],
       decoration: const InputDecoration(labelText: 'Occupation'),
       items: [
         'Employed',
@@ -51,6 +55,7 @@ List<Widget> personalInfoFields({required initialValues}) {
     ),
     FormBuilderDropdown(
       name: 'civil_status',
+      initialValue: initialValues['civil_status'],
       decoration: const InputDecoration(labelText: 'Civil Status'),
       items: ['Married', 'Single', 'Divorced', 'Widowed']
           .map(
@@ -64,6 +69,8 @@ List<Widget> personalInfoFields({required initialValues}) {
     ),
     FormBuilderImagePicker(
       name: 'photo',
+      initialValue: initialValues['photo'],
+      maxImages: 1,
       decoration: const InputDecoration(
           labelText: 'Passport sized Photo',
           helperText: 'Please upload a clear passport sized photo of yourself',

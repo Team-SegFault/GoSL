@@ -93,7 +93,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[3]!,
-                    fields: arrivalDetails(initialValues: _visaApplicationData[3] ?? {}),
+                    fields: arrivalDetails(
+                        initialValues: _visaApplicationData[3] ?? {}
+                    ),
                     onActionButtonClick: goToNextPage,
                     isLastStep: true,
                   ),

@@ -8,14 +8,17 @@ List<Widget> passportDetailsFields({required initialValues}){
     // country of issue
     FormBuilderTextField(
       name: 'countryOfIssue',
+      initialValue: initialValues['countryOfIssue'],
       decoration: const InputDecoration(labelText: 'Country of Issue'),
     ),
     FormBuilderTextField(
       name: 'passportNumber',
+      initialValue: initialValues['passportNumber'],
       decoration: const InputDecoration(labelText: 'Passport Number'),
     ),
     FormBuilderDateTimePicker(
       name: 'issueDate',
+      initialValue: initialValues['issueDate'],
       decoration: const InputDecoration(labelText: 'Issue Date'),
       inputType: InputType.date,
       firstDate: DateTime(1900),
@@ -23,13 +26,15 @@ List<Widget> passportDetailsFields({required initialValues}){
     ),
     FormBuilderDateTimePicker(
       name: 'expiryDate',
+      initialValue: initialValues['expiryDate'],
       decoration: const InputDecoration(labelText: 'Expiry Date'),
       inputType: InputType.date,
       firstDate: DateTime(1900),
     ),
     // Photo of the Passport Bio Page
     FormBuilderImagePicker(
-      name: 'photos',
+      name: 'passportPhoto',
+      initialValue: initialValues['passportPhoto'],
       decoration: const InputDecoration(
         labelText: 'Photo of the Passport Bio Page',
         helperText: 'Please upload a clear photo of the passport bio page',
