@@ -1,25 +1,17 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:gap/gap.dart';
+import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 
-import '../../components/button.dart';
-
-class PersonalInfoForm extends StatelessWidget {
-  final _formKey = GlobalKey<FormBuilderState>();
-
-  PersonalInfoForm({super.key});
-
-  static const gap = Gap(20);
-
-  static List<Widget> elements  = [
+List<Widget> personalInfoFields({required initialValues}) {
+  return [
     FormBuilderTextField(
       name: 'name',
+      initialValue: initialValues['name'],
       decoration: const InputDecoration(labelText: 'Name'),
     ),
     FormBuilderDropdown(
       name: 'gender',
+      initialValue: initialValues['gender'],
       decoration: const InputDecoration(labelText: 'Gender'),
       items: ['Male', 'Female', 'Other']
           .map(
@@ -33,15 +25,15 @@ class PersonalInfoForm extends StatelessWidget {
     ),
     FormBuilderDateTimePicker(
       name: 'birthdate',
-      decoration: const InputDecoration(labelText: 'Birthdate'),
+      initialValue: initialValues['birthdate'],
+      decoration: const InputDecoration(labelText: 'Date of Birth'),
       inputType: InputType.date,
-      initialDate: DateTime.now(),
-      initialValue: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     ),
     FormBuilderDropdown(
       name: 'occupation',
+      initialValue: initialValues['occupation'],
       decoration: const InputDecoration(labelText: 'Occupation'),
       items: [
         'Employed',
@@ -62,7 +54,8 @@ class PersonalInfoForm extends StatelessWidget {
           .toList(),
     ),
     FormBuilderDropdown(
-      name: 'gender',
+      name: 'civil_status',
+      initialValue: initialValues['civil_status'],
       decoration: const InputDecoration(labelText: 'Civil Status'),
       items: ['Married', 'Single', 'Divorced', 'Widowed']
           .map(
@@ -74,29 +67,15 @@ class PersonalInfoForm extends StatelessWidget {
       )
           .toList(),
     ),
-    SizedBox(
-      width: double.infinity,
-      child: AppButton(
-        text: 'Next',
-        onPressed: () {
-
-        },
+    FormBuilderImagePicker(
+      name: 'photo',
+      initialValue: initialValues['photo'],
+      maxImages: 1,
+      decoration: const InputDecoration(
+          labelText: 'Passport sized Photo',
+          helperText: 'Please upload a clear passport sized photo of yourself',
+          helperMaxLines: 3
       ),
-    ),
+    )
   ];
-
-  @override
-  Widget build(BuildContext context) {
-    return FormBuilder(
-      key: _formKey,
-      child: SingleChildScrollView(
-        child: Column(
-          // children - elements with gap in between
-          children: [
-            for (var element in elements) ...[element, gap],
-          ],
-        ),
-      ),
-    );
-  }
 }
