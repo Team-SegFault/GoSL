@@ -7,182 +7,247 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final double height = size.height;
+    final double width = size.width;
+
+    final double keyboardVisible = MediaQuery.of(context).viewInsets.bottom;
+
     return Scaffold(
       backgroundColor: Color(0xfffafafa),
-      body: ListView(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 200,
-                ), // to do - hero should be added
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '🇱🇰Go',
-                      style: GoogleFonts.poppins(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFFF7C04A)),
-                    ),
-                    Text(
-                      'SL',
-                      style: GoogleFonts.poppins(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w700,
-                          color: Color(0xFFF7C04A)),
-                    )
-                  ],
-                ),
-                SizedBox(height: 10),
-                Container(
-                    alignment: Alignment.center,
-                    width: 200,
-                    child: Text.rich(
-                      textAlign: TextAlign.center,
-                      TextSpan(
-                        text: 'traveling Sri Lanka made ', // Regular text
-                        style: GoogleFonts.poppins(
-                            fontSize:
-                                16), // Apply a font style for the entire text
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'easier', // Bold last word
-                            style: GoogleFonts.poppins(
-                              fontWeight:
-                                  FontWeight.bold, // Make only this word bold
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
-                SizedBox(
-                  height: 80,
-                ),
-                Container(
-                  padding:
-                      EdgeInsets.only(left: 25, right: 25, top: 25, bottom: 15),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(35.0),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(width * 0.05),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              AnimatedContainer(
+
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOutExpo,
+                height: keyboardVisible == 0 ? height * 0.185 : height * 0.1,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '🇱🇰Go',
+                    style: GoogleFonts.poppins(
+                        fontSize: width * 0.1,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFFF7C04A)),
                   ),
-                  child: Column(children: [
-                    TextField(
-                      decoration: InputDecoration(
-                          labelText: ' Username',
-                          labelStyle: GoogleFonts.poppins(color: Color(0xFFBABABA),),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16),
-                              borderSide: BorderSide(color: Color(0xFFBABABA))),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16),
-                              borderSide:
-                                  BorderSide(color: Color(0xFFF7C04A)))),
+                  Text(
+                    'SL',
+                    style: GoogleFonts.poppins(
+                        fontSize: width * 0.1,
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFFF7C04A)),
+                  )
+                ],
+              ),
+              SizedBox(height: height * 0.01),
+              Container(
+                alignment: Alignment.center,
+                width: width * 0.5,
+                child: Text.rich(
+                  textAlign: TextAlign.center,
+                  TextSpan(
+                    text: 'traveling Sri Lanka made ',
+                    style: GoogleFonts.poppins(fontSize: width * 0.04),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'easier',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.075,
+              ),
+              Container(
+                padding: EdgeInsets.only(
+                  top: width * 0.06,
+                  bottom: width * 0.035,
+                  right: width * 0.06,
+                  left: width * 0.06,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(35.0),
+                ),
+                child: Column(children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: ' Username',
+                      labelStyle: GoogleFonts.poppins(
+                        color: Color(0xFFBABABA),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide(color: Color(0xFFBABABA)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide(color: Color(0xFFF7C04A)),
+                      ),
                     ),
-                    SizedBox(height: 30),
-                    TextField(
-                      decoration: InputDecoration(
-                          labelText: ' Password',
-                          labelStyle: GoogleFonts.poppins(color: Color(0xFFBABABA),),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16),
-                              borderSide: BorderSide(color: Color(0xFFBABABA))),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16),
-                              borderSide:
-                                  BorderSide(color: Color(0xFFF7C04A)))),
-                      obscureText: true,
+                  ),
+                  SizedBox(height: height * 0.03),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: ' Password',
+                      labelStyle: GoogleFonts.poppins(
+                        color: Color(0xFFBABABA),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide(color: Color(0xFFBABABA)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide(color: Color(0xFFF7C04A)),
+                      ),
                     ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Container(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          // Handle click event here
-                          print('Text clicked');
-                        },
+                    obscureText: true,
+                  ),
+                  SizedBox(height: height * 0.005),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        print('Text clicked');
+                      },
                       child: Text(
                         'Forget Password',
                         textAlign: TextAlign.end,
                         style: GoogleFonts.poppins(
-                            color: Color(0xFFBABABA), fontSize: 12),
-                      ),)
-                    ),
-                    Container(
-                      height: 10,
-                    ),
-                    SizedBox(
-                        width: 450,
-                        height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {print('Login');},
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Color(0xFFF7C04A),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                          ),
-                          child: Text(
-                            'Login',
-                            style: GoogleFonts.poppins(
-                                color: Colors.black, // Set text color here
-                                fontSize: 16,
-                                fontWeight:
-                                    FontWeight.w500 // Set font size if needed
-                                ),
-                          ),
-                        )),
-                    Container(
-                      height: 10,
-                    ),
-                    Text.rich(
-                      TextSpan(
-                        text: 'Read our ', // Normal text
-                        style: GoogleFonts.poppins(fontSize: 10,color: Color(0xFFBABABA)),
-                        children: [
-                          TextSpan(
-                            text: 'Privacy Policy', // Clickable and underlined
-                            style: TextStyle(
-                              decoration:
-                                  TextDecoration.underline, // Underline text
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // Handle Privacy Policy click
-                                print('Privacy Policy clicked');
-                              },
-                          ),
-                          TextSpan(
-                            text: ' and ', // Normal text
-                          ),
-                          TextSpan(
-                            text: 'Terms of Use', // Clickable and underlined
-                            style: TextStyle(
-                              decoration:
-                                  TextDecoration.underline, // Underline text
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // Handle Terms of Use click
-                                print('Terms of Use clicked');
-                              },
-                          ),
-                        ],
+                          color: Color(0xFFBABABA),
+                          fontSize: width * 0.03,
+                        ),
                       ),
-                    )
-                  ]),
+                    ),
+                  ),
+                  SizedBox(height: height * 0.01),
+                  SizedBox(
+                    width: double.infinity,
+                    height: height * 0.07,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        print('Login');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        backgroundColor: Color(0xFFF7C04A),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                      ),
+                      child: Text(
+                        'Login',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontSize: width * 0.04,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: height * 0.01),
+                  Text.rich(
+                    TextSpan(
+                      text: 'Read our ',
+                      style: GoogleFonts.poppins(
+                        fontSize: width * 0.025,
+                        color: Color(0xFFBABABA),
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'Privacy Policy',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print('Privacy Policy clicked');
+                            },
+                        ),
+                        TextSpan(
+                          text: ' and ',
+                        ),
+                        TextSpan(
+                          text: 'Terms of Use',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print('Terms of Use clicked');
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+              ),
+              SizedBox(height: height * 0.02), // Responsive space
+              Text(
+                "Don't have an account?",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  fontSize: width * 0.03, // Responsive font size
                 ),
-              ],
-            ),
+              ),
+              Text(
+                "Create an account",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  fontSize: width * 0.03, // Responsive font size
+                ),
+              ),
+              SizedBox(height: height * 0.02),
+              ElevatedButton.icon(
+                icon: Image.asset('assets/icons/google.png', height: 20.0),
+                label: const Text('Sign in with Google'),
+                onPressed: () {
+
+                },
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(width*0.6, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  side: BorderSide(
+                    color: Color(0xFFE8E8E8),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton.icon(
+                icon: Icon(Icons.facebook, color: Colors.white),
+                label: const Text('Sign in with Facebook'),
+                onPressed: () {
+
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color(0xFF1877F2),
+                  minimumSize: Size(width*0.6, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
