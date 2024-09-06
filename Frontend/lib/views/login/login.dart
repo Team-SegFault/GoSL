@@ -1,3 +1,4 @@
+import 'package:GOSL/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';
@@ -138,7 +139,11 @@ class LoginPage extends StatelessWidget {
                     height: height * 0.07,
                     child: ElevatedButton(
                       onPressed: () {
-                        print('Login');
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
