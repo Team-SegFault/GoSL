@@ -13,4 +13,14 @@ class VisaTypeSerializer(serializers.ModelSerializer):
 class VisaApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = VisaApplication
-        fields = ['id', 'form_created', 'name', 'email', 'phone', 'address', 'passport_number', 'passport_issue_date', 'passport_expiry_date', 'passport_photo', 'visa_type_reference', 'visa_start_date']
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        read_only_fields = [
+            'isApproved', 'isRejected', 'isProccessing', 
+            'isPending', 'form_created', 'id'
+        ]
+        for field in read_only_fields:
+            if field in self.fields:
+                self.fields[field].read_only = True

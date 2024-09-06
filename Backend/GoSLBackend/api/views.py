@@ -26,7 +26,7 @@ class VisaTypeDetail(generics.RetrieveUpdateDestroyAPIView):
 class VisaApplicationListCreate(generics.ListCreateAPIView):
     queryset = VisaApplication.objects.all()
     serializer_class = VisaApplicationSerializer
-    permission_classes = [KeyCloakOfficerPermission]
+    # permission_classes = [KeyCloakOfficerPermission]
 
 
 class VisaApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
