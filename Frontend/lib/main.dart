@@ -5,10 +5,8 @@ import 'package:GOSL/views/home.dart';
 import 'package:GOSL/views/profileview.dart';
 import 'package:GOSL/views/wishlistview.dart';
 import 'package:GOSL/theme.dart';
-import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,17 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
-      theme: ThemeData(
-        primaryColor: const Color(0xFFF7C04A),
-        scaffoldBackgroundColor: const Color(0xFFFAFAFA),
-        textTheme: GoogleFonts.urbanistTextTheme().copyWith(
-          titleLarge: GoogleFonts.playfairDisplay(),
-          titleMedium: GoogleFonts.playfairDisplay(),
-          titleSmall: GoogleFonts.playfairDisplay(),
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: theme,
       home: MainPage(),
     );
   }
