@@ -43,18 +43,18 @@ class FormStepper extends StatelessWidget {
             // title: activeStep == index ? _titles[index] : null,
             customTitle: activeStep == index
                 ? Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                titles[index],
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: activeStep == index
-                      ? Colors.black
-                      : Colors.grey[200],
-                  fontSize: 10,
-                ),
-              ),
-            )
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      titles[index],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: activeStep == index
+                            ? Colors.black
+                            : Colors.grey[200],
+                        fontSize: 10,
+                      ),
+                    ),
+                  )
                 : null,
             topTitle: false);
       }),
