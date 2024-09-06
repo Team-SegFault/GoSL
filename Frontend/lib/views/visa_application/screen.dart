@@ -15,7 +15,7 @@ class VisaApplicationPage extends StatefulWidget {
 }
 
 class _VisaApplicationPageState extends State<VisaApplicationPage> {
-  final Map<String, dynamic> _visaApplicationData = {};
+  final Map<int, dynamic> _visaApplicationData = {};
   final PageController _pageController = PageController();
   int _currentPageIndex = 0;
 
@@ -37,9 +37,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
       ),
       body: Column(
         children: [
-          ElevatedButton(onPressed: (){
-            print(_visaApplicationData);
-          }, child: Text('Submit')),
+          // ElevatedButton(onPressed: (){
+          //   print(_visaApplicationData);
+          // }, child: Text('Submit')),
           FormStepper(
             activeStep: _currentPageIndex,
             titles: const [
@@ -63,10 +63,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[0]!,
-                    fields: personalInfoFields(),
-                    saveForm: (formData) async {
-                      await _saveFormData();
-                    },
+                    fields: personalInfoFields(
+                        initialValues: _visaApplicationData[0] ?? {},
+                    ),
                     onActionButtonClick: goToNextPage,
                     isLastStep: false,
                   ),
@@ -74,10 +73,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[1]!,
-                    fields: contactDetailsFields(),
-                    saveForm: (formData) {
-                      _visaApplicationData['contactDetails'] = formData;
-                    },
+                    fields: contactDetailsFields(
+                        initialValues: _visaApplicationData[1] ?? {},
+                    ),
                     onActionButtonClick: goToNextPage,
                     isLastStep: false,
                   ),
@@ -85,10 +83,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[2]!,
-                    fields: passportDetailsFields(),
-                    saveForm: (formData) {
-                      _visaApplicationData['passportDetails'] = formData;
-                    },
+                    fields: passportDetailsFields(
+                        initialValues: _visaApplicationData[2] ?? {}
+                    ),
                     onActionButtonClick: goToNextPage,
                     isLastStep: false,
                   ),
@@ -96,10 +93,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[3]!,
-                    fields: arrivalDetails(),
-                    saveForm: (formData) {
-                      _visaApplicationData['arrivalDetails'] = formData;
-                    },
+                    fields: arrivalDetails(initialValues: _visaApplicationData[3] ?? {}),
                     onActionButtonClick: goToNextPage,
                     isLastStep: true,
                   ),
@@ -122,7 +116,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     // Save the form data if it's valid
     if (currentFormState?.saveAndValidate() ?? false) {
       setState(() {
-        _visaApplicationData[_currentPageIndex.toString()] =
+        _visaApplicationData[_currentPageIndex] =
             currentFormState!.value;
       });
     }

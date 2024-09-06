@@ -7,7 +7,6 @@ class DynamicForm extends StatelessWidget {
   final Function() onActionButtonClick;
   final bool isLastStep;
 
-  final Function(Map<String, dynamic>) saveForm;
   final GlobalKey<FormBuilderState> formKey;
 
   DynamicForm({
@@ -15,7 +14,6 @@ class DynamicForm extends StatelessWidget {
     required this.fields,
     required this.onActionButtonClick,
     required this.isLastStep,
-    required this.saveForm,
   });
 
   @override

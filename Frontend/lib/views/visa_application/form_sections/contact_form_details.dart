@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-List<Widget> contactDetailsFields(){
+List<Widget> contactDetailsFields({required initialValues}){
   return [
     FormBuilderTextField(
       name: 'email',
