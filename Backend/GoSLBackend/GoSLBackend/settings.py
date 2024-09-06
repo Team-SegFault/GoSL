@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from dotenv import load_dotenv
 from pathlib import Path
+import os
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -134,4 +136,4 @@ SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 
 #Gemini API
 
-GEMINI_API_KEY = "AIzaSyCO2IGhu4JYzj8ZhyCcv9VnxnPwu22W4VI"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
