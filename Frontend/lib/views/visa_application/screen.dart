@@ -37,9 +37,6 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
       ),
       body: Column(
         children: [
-          // ElevatedButton(onPressed: (){
-          //   print(_visaApplicationData);
-          // }, child: Text('Submit')),
           FormStepper(
             activeStep: _currentPageIndex,
             titles: const [
@@ -96,7 +93,10 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                     fields: arrivalDetails(
                         initialValues: _visaApplicationData[3] ?? {}
                     ),
-                    onActionButtonClick: goToNextPage,
+                    onActionButtonClick: () async {
+                      _saveFormData();
+                      await postVisaApplication();
+                    },
                     isLastStep: true,
                   ),
                 )
@@ -131,5 +131,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+  }
+
+  Future postVisaApplication() async {
+    // Post visa application data to the server
   }
 }
