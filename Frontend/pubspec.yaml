@@ -73,23 +73,11 @@ flutter:
     - assets/images/home/
     - assets/images/profile/
     - assets/icons/
-  #   - images/a_dot_ham.jpeg
-  assets:
-    - assets/surf/leapord.jpg
-    - assets/surf/bg.jpg
-    - assets/surf/surfbg.png
-    - assets/surf/animal_surf/bigSquirrel.png
-    - assets/surf/animal_surf/leapord.jpg
-    - assets/surf/animal_surf/elephant.jpg
-    - assets/surf/event_surf/perahara.jpg
-    - assets/surf/event_surf/Kirimadu.jpg
-    - assets/surf/event_surf/kovil.jpg
-    - assets/surf/food_surf/milkRice.jpg
-    - assets/surf/food_surf/kottu.jpg
-    - assets/surf/food_surf/hoppers.jpg
-    - assets/surf/places_surf/ellaBridge.jpg
-    - assets/surf/places_surf/galleFort.jpg
-    - assets/surf/places_surf/Sigiriya.jpg
+    - assets/surf/
+    - assets/surf/animal_surf/
+    - assets/surf/event_surf/
+    - assets/surf/food_surf/
+    - assets/surf/places_surf/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -1,4 +1,5 @@
 import 'package:GOSL/components/home_card.dart';
+import 'package:GOSL/views/surf.dart';
 import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,22 +19,43 @@ class HomePage extends StatelessWidget {
       child: ListView(
         children: [
           const CoverPhoto(),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                HomeCard(
-                  title: "Explore",
-                  imgPath: "assets/images/home/sigiriya_blur.png",
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      // Add navigation or action for "Explore" card
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SurfPage(), // Replace with your actual page
+                      ));
+                    },
+                    child: HomeCard(
+                      title: "Explore",
+                      imgPath: "assets/images/home/sigiriya_blur.png",
+                    ),
+                  ),
                 ),
-                Spacer(),
-                HomeCard(
-                  title: "Plan Trip",
-                  imgPath: "assets/images/home/trip_blur.png",
+                const SizedBox(width: 16), // Space between cards
+                Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      // Add navigation or action for "Plan Trip" card
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SurfPage(), // Replace with your actual page
+                      ));
+                    },
+                    child: HomeCard(
+                      title: "Plan Trip",
+                      imgPath: "assets/images/home/trip_blur.png",
+                    ),
+                  ),
                 ),
               ],
-            ),
+            )
+
           ),
           const VisaSimplified(),
           Container(
