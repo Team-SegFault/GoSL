@@ -1,3 +1,4 @@
+import 'package:GOSL/utils/datestring.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -17,7 +18,6 @@ List<Widget> arrivalDetails({required initialValues}){
     FormBuilderTextField(
       name: 'visa_duration',
       initialValue: initialValues['visa_duration'],
-      valueTransformer: (value) => int.tryParse(value!),
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(),
         FormBuilderValidators.numeric(errorText: "Please enter a number"),

@@ -1,3 +1,4 @@
+import 'package:GOSL/utils/datestring.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path; // For basename
 import 'package:http_parser/http_parser.dart'; // For MediaType
@@ -141,7 +142,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
   Future<void> postVisaApplication() async {
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse('https://example.com/api/visa_application'),
+      Uri.parse('http://gosl.lakindu.me/api/visa-applications/'),
     );
 
     // Prepare JSON data
@@ -151,8 +152,8 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     request.fields.addAll(requestBody);
 
     // Attach images (passport bio page and passport size photo)
-    final XFile passportBioPage = _visaApplicationData[2]['passport_bio_page'];
-    final XFile passportSizePhoto = _visaApplicationData[0]['passport_size_photo'];
+    final XFile passportBioPage = _visaApplicationData[2]['passport_bio_page'][0];
+    final XFile passportSizePhoto = _visaApplicationData[0]['passport_size_photo'][0];
 
     request.files.add(await http.MultipartFile.fromPath(
       'passport_bio_page',
@@ -173,8 +174,11 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
 
     // Send the request
     final response = await request.send();
-
     // Check if the request was successful
+    // read the response body from the response stream
+    var responseBody = await response.stream.bytesToString();
+    print(responseBody);
+
     if (response.statusCode == 200) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const ApplicationSuccessPage()),
@@ -191,22 +195,25 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     final passportDetails = visaApplicationData[2];
     final arrivalDetails = visaApplicationData[3];
 
-    return {
-      'name': personalInfo['name'],
-      'gender': personalInfo['gender'],
-      'occupation': personalInfo['occupation'],
-      'civil_status': personalInfo['civil_status'],
-      'date_of_birth': personalInfo['date_of_birth'],
-      'passport_issue_country': passportDetails['passport_issue_country'],
-      'passport_number': passportDetails['passport_number'],
-      'passport_issue_date': passportDetails['passport_issue_date'],
-      'passport_expiry_date': passportDetails['passport_expiry_date'],
-      'phone': contactDetails['phone'],
-      'address': contactDetails['address'],
-      'email': contactDetails['email'],
-      'visa_duration': arrivalDetails['visa_duration'],
-      'visa_start_date': arrivalDetails['visa_start_date'],
-      'past_travel_history': arrivalDetails['past_travel_history'],
+    Map<String, String> body = {
+      'user':'1',
+      'name': personalInfo['name'].toString(),
+      'gender': personalInfo['gender'].toString(),
+      'occupation': personalInfo['occupation'].toString(),
+      'civil_status': personalInfo['civil_status'].toString(),
+      'date_of_birth': formatDate(personalInfo['date_of_birth']),
+      'passport_issue_country': passportDetails['passport_issue_country'].toString(),
+      'passport_number': passportDetails['passport_number'].toString(),
+      'passport_issue_date': formatDate(passportDetails['passport_issue_date']),
+      'passport_expiry_date': formatDate(passportDetails['passport_expiry_date']),
+      'phone': contactDetails['phone'].toString(),
+      'address': contactDetails['address'].toString(),
+      'email': contactDetails['email'].toString(),
+      'visa_duration': arrivalDetails['visa_duration'].toString(),
+      'visa_start_date': formatDate(arrivalDetails['visa_start_date']),
+      'past_travel_history': arrivalDetails['past_travel_history'].toString(),
     };
+
+    return body;
   }
 }
