@@ -1,7 +1,6 @@
 import 'package:GOSL/components/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:easy_stepper/easy_stepper.dart';
 
 class InitOnBoarding extends StatelessWidget {
   const InitOnBoarding({super.key});
@@ -89,7 +88,7 @@ class InitOnBoarding extends StatelessWidget {
                         height: 50,
                         width: screenWidth *
                             0.23, // Make container width responsive
-                        child: Stepper(),
+                        child: const Stepper(),
                       ),
                       const Logo(fontSize: 20),
                       TextButton(
@@ -119,34 +118,45 @@ class InitOnBoarding extends StatelessWidget {
 }
 
 class OnBoarding extends StatelessWidget {
+  final String backgroundImage;
+  final Color gradColor1;
+  final Color gradColor2;
+  final String title1;
+  final String title2;
+  final String description;
+  final String buttonText;
 
-final String backgroundImage;
-final Color gradColor1;
-final Color gradColor2;
-final String title;
-final String description;
-
-  const OnBoarding({super.key, required this.backgroundImage, required this.gradColor1, required this.gradColor2});
+  const OnBoarding({
+    super.key,
+    required this.backgroundImage,
+    required this.gradColor1,
+    required this.gradColor2,
+    required this.title1,
+    required this.title2,
+    required this.description,
+    this.buttonText = 'Skip',
+  });
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/onBoarding.png'),
+            image: AssetImage(backgroundImage),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
           child: Stack(
             children: [
-              // Dark gradient background at the bottom
               Align(
                 alignment: Alignment.bottomCenter,
                 child: FractionallySizedBox(
                   widthFactor: 1.0,
-                  heightFactor: 2 / 5,
+                  heightFactor: 5 / 9,
                   child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -154,8 +164,8 @@ final String description;
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Colors.black.withOpacity(0.8),
-                          Colors.black,
+                          gradColor1.withOpacity(0.8),
+                          gradColor2,
                         ],
                       ),
                     ),
@@ -165,33 +175,56 @@ final String description;
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  // Logo at the top
-                  const Image(
-                    image: AssetImage('assets/images/Ayubowan.png'),
-                    height: 100,
-                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30.0,
-                      vertical: 20.0,
+                      vertical: 30.0,
                     ),
-                    child: Text.rich(
-                      TextSpan(
-                        text:
-                            'Meaning “Wish you a long life” and this is how we greet here in ',
-                        style: GoogleFonts.poppins(
-                            fontSize: 20, fontWeight: FontWeight.w300),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'Sri Lanka.',
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.bold),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title1,
+                          style: GoogleFonts.playfairDisplay(
+                            fontSize: screenWidth * 0.13,
+                            color: const Color(0xffF5F4E8),
+                            fontWeight: FontWeight.bold,
+                            height: 0.6,
+                            shadows: [
+                              Shadow(
+                                offset: const Offset(2.0, 2.0),
+                                blurRadius: 10.0,
+                                color: Colors.black.withOpacity(0.5),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        Text(
+                          title2,
+                          style: GoogleFonts.playfairDisplay(
+                            fontSize: screenWidth * 0.16,
+                            color: const Color(0xffF5F4E8),
+                            fontWeight: FontWeight.bold,
+                            shadows: [
+                              Shadow(
+                                offset: const Offset(2.0, 2.0),
+                                blurRadius: 10.0,
+                                color: Colors.black.withOpacity(0.5),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Text(
+                          description,
+                          style: GoogleFonts.poppins(
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  // Stepper, Logo, and Skip button
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -199,15 +232,15 @@ final String description;
                         alignment: Alignment.center,
                         height: 50,
                         width: 100,
-                        child: Stepper(),
+                        child: const Stepper(),
                       ),
                       const Logo(fontSize: 20),
                       TextButton(
                         onPressed: () {
-                          // Navigate to the home page
+                          // Handle the skip button functionality
                         },
                         child: Text(
-                          'Skip',
+                          buttonText,
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white.withOpacity(0.8),
