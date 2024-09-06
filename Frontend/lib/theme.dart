@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const primary = Color(0xFFF7C04A);
-
 var theme = ThemeData(
   colorScheme: const ColorScheme(
     surface: Color(0xfffafafa),
     onSurface: Colors.black,
     brightness: Brightness.light,
-    primary: primary,
+    primary: Color(0xFFF7C04A),
     onPrimary: Colors.black,
     secondary: Color(0xfffdf6d7),
     onSecondary: Colors.black,
@@ -21,7 +19,7 @@ var theme = ThemeData(
     titleSmall: GoogleFonts.playfairDisplay(),
   ),
   appBarTheme: const AppBarTheme(
-    backgroundColor: surface,
+    backgroundColor: Color(0xfffafafa),
     elevation: 0,
     iconTheme: IconThemeData(color: Colors.black),
     titleTextStyle: TextStyle(
@@ -32,7 +30,7 @@ var theme = ThemeData(
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: primary,
+      backgroundColor: Color(0xFFF7C04A),
       padding: const EdgeInsets.all(14),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
@@ -40,7 +38,7 @@ var theme = ThemeData(
     ),
   ),
   buttonTheme: ButtonThemeData(
-    buttonColor: primary,
+    buttonColor: Color(0xFFF7C04A),
     textTheme: ButtonTextTheme.primary,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
@@ -50,14 +48,14 @@ var theme = ThemeData(
   inputDecorationTheme: InputDecorationTheme(
     labelStyle: const TextStyle(color: Colors.black),
     floatingLabelBehavior: FloatingLabelBehavior.always,
-    focusColor: primary,
+    focusColor: Color(0xFFF7C04A),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
       borderSide: BorderSide(color: Colors.grey[200]!, width: 2),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
-      borderSide: const BorderSide(color: primary, width: 2),
+      borderSide: const BorderSide(color: Color(0xFFF7C04A), width: 2),
     ),
     contentPadding: const EdgeInsets.all(14),
   ),
