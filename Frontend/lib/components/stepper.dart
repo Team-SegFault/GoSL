@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 
 class FormStepper extends StatelessWidget {
   List<String> titles;
-  Function(int index) onStepTapped;
   int activeStep;
 
   FormStepper(
       {super.key,
-      required this.onStepTapped,
       required this.titles,
       required this.activeStep});
 
@@ -58,7 +56,6 @@ class FormStepper extends StatelessWidget {
                 : null,
             topTitle: false);
       }),
-      onStepReached: (index) => onStepTapped(index),
     );
   }
 }

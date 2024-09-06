@@ -7,12 +7,11 @@ class DynamicForm extends StatelessWidget {
   final Function() onActionButtonClick;
   final bool isLastStep;
 
-  final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
-
   final Function(Map<String, dynamic>) saveForm;
+  final GlobalKey<FormBuilderState> formKey;
 
   DynamicForm({
-    super.key,
+    required this.formKey,
     required this.fields,
     required this.onActionButtonClick,
     required this.isLastStep,
@@ -23,9 +22,6 @@ class DynamicForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilder(
       key: formKey,
-      onChanged: () {
-        // Handle form changes
-      },
       child: Column(
         children: [
           // Display form fields with gap
@@ -36,8 +32,7 @@ class DynamicForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                // Validate form
+              onPressed: () async {
                 onActionButtonClick();
               },
               child: Text(isLastStep ? 'Submit' : 'Next'),  // Display "Submit" or "Next"

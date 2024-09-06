@@ -19,6 +19,14 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
   final PageController _pageController = PageController();
   int _currentPageIndex = 0;
 
+  // page form keys
+  final Map<int, GlobalKey<FormBuilderState>> _pageFormKey = {
+    0: GlobalKey<FormBuilderState>(),
+    1: GlobalKey<FormBuilderState>(),
+    2: GlobalKey<FormBuilderState>(),
+    3: GlobalKey<FormBuilderState>(),
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +37,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
       ),
       body: Column(
         children: [
+          ElevatedButton(onPressed: (){
+            print(_visaApplicationData);
+          }, child: Text('Submit')),
           FormStepper(
             activeStep: _currentPageIndex,
             titles: const [
@@ -37,63 +48,62 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
               'Passport Details',
               'Arrival Details',
             ],
-            onStepTapped: (index) {
-              _pageController.jumpToPage(index);
-            },
           ),
           Expanded(
             child: PageView(
               controller: _pageController,
-              onPageChanged: (index) {
+              onPageChanged: (index) async {
+                await _saveFormData(); // Save form data on page change
                 setState(() {
                   _currentPageIndex = index;
                 });
+                print(_visaApplicationData);
               },
               children: [
                 FormWrapper(
                   child: DynamicForm(
+                    formKey: _pageFormKey[0]!,
                     fields: personalInfoFields,
-                    saveForm: (formData) {
-                      setState(() {
-                        _visaApplicationData['personalInfo'] = formData;
-                      });
+                    saveForm: (formData) async {
+                      await _saveFormData();
                     },
                     onActionButtonClick: goToNextPage,
-                    isLastStep: false, // Not the last step, show "Next"
+                    isLastStep: false,
                   ),
                 ),
                 FormWrapper(
                   child: DynamicForm(
+                    formKey: _pageFormKey[1]!,
                     fields: contactDetailsFields,
                     saveForm: (formData) {
-                      setState(() {
-                        _visaApplicationData['contactDetails'] = formData;
-                      });
+                      _visaApplicationData['contactDetails'] = formData;
                     },
                     onActionButtonClick: goToNextPage,
-                    isLastStep: false, // Last step, show "Submit"
+                    isLastStep: false,
                   ),
                 ),
                 FormWrapper(
-                    child: DynamicForm(
-                        fields: passportDetailsFields,
-                        saveForm: (formData) {
-                          setState(() {
-                            _visaApplicationData['passportDetails'] = formData;
-                          });
-                        },
-                        onActionButtonClick: goToNextPage,
-                        isLastStep: false)),
+                  child: DynamicForm(
+                    formKey: _pageFormKey[2]!,
+                    fields: passportDetailsFields,
+                    saveForm: (formData) {
+                      _visaApplicationData['passportDetails'] = formData;
+                    },
+                    onActionButtonClick: goToNextPage,
+                    isLastStep: false,
+                  ),
+                ),
                 FormWrapper(
-                    child: DynamicForm(
-                        fields: arrivalDetails,
-                        saveForm: (formData) {
-                          setState(() {
-                            _visaApplicationData['arrivalDetails'] = formData;
-                          });
-                        },
-                        onActionButtonClick: goToNextPage,
-                        isLastStep: true))
+                  child: DynamicForm(
+                    formKey: _pageFormKey[3]!,
+                    fields: arrivalDetails,
+                    saveForm: (formData) {
+                      _visaApplicationData['arrivalDetails'] = formData;
+                    },
+                    onActionButtonClick: goToNextPage,
+                    isLastStep: true,
+                  ),
+                )
               ],
             ),
           ),
@@ -102,7 +112,25 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     );
   }
 
-  void goToNextPage() {
+  // Save form data based on the current step
+  Future<void> _saveFormData() async {
+    FormBuilderState? currentFormState;
+
+    // Determine the current form to save
+    currentFormState = _pageFormKey[_currentPageIndex]!.currentState;
+
+    // Save the form data if it's valid
+    if (currentFormState?.saveAndValidate() ?? false) {
+      setState(() {
+        _visaApplicationData[_currentPageIndex.toString()] =
+            currentFormState!.value;
+      });
+    }
+  }
+
+
+  void goToNextPage() async {
+    await _saveFormData();
     _pageController.nextPage(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
