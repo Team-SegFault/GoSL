@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:GOSL/components/navbar.dart';
 import 'package:GOSL/controllers/navbar_controller.dart';
 import 'package:GOSL/views/mytrip.dart';
 import 'package:GOSL/views/home.dart';
 import 'package:GOSL/views/profileview.dart';
 import 'package:GOSL/views/wishlistview.dart';
-import 'package:flutter/material.dart';
+import 'package:GOSL/theme.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,16 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFFAFAFA),
-        textTheme: GoogleFonts.urbanistTextTheme().copyWith(
-          titleLarge: GoogleFonts.inter(),
-          titleMedium: GoogleFonts.inter(),
-          titleSmall: GoogleFonts.inter(),
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: theme,
       home: MainPage(),
     );
   }
