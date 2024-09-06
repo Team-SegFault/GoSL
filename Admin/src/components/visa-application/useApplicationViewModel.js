@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
 
-const useApplicationDetails = (applicationId) => {
+const useApplicationDetails = () => {
   const [loading, setLoading] = useState(true);
   const [applicationData, setApplicationData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!applicationId) {
-      setError("Invalid Application ID");
-      setLoading(false);
-      return;
-    }
-
     const fetchApplicationData = async () => {
       try {
-        throw new Error("Not implemented");
+        // Fetch application data
+        const response = await fetch(
+          "http://gosl.lakindu.me/api/visa-applications/"
+        );
+        if (response.status === 200) {
+          const data = await response.json();
+          setApplicationData(data);
+        }
       } catch (err) {
         if (err.response && err.response.status === 404) {
           setError("Application not found (404)");
@@ -27,7 +28,7 @@ const useApplicationDetails = (applicationId) => {
     };
 
     fetchApplicationData();
-  }, [applicationId]);
+  }, []);
 
   return { loading, applicationData, error };
 };
