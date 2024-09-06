@@ -19,9 +19,10 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1 flex flex-col items-center">
-          <div className="w-20 h-20 mb-4 flex items-center justify-center bg-primary rounded-full">
+          <div className="h-20 mb-4 flex items-center justify-center rounded-full">
             {/* Replace with your actual logo */}
-            <LockIcon className="h-10 w-10 text-primary-foreground" />
+            <img src="/logo.png" className="h-10" />
+            {/* <LockIcon className="h-10 w-10 text-primary-foreground" /> */}
           </div>
           <h2 className="text-2xl font-bold text-center">Login to Your Account</h2>
           <p className="text-sm text-muted-foreground text-center">
