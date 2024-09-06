@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import VisaApplication from "@/components/visa-application";
 import useApplicationDetails from "@/components/visa-application/useApplicationViewModel";
 import { Skeleton } from "@/components/ui/skeleton";
+import DetailComponent from "@/components/dashboard/applicationDetails";
 
 const ApplicationDetailsPage = () => {
   const location = useLocation();
@@ -26,7 +27,8 @@ const ApplicationDetailsPage = () => {
     <div>
       <h1>Application Details</h1>
       <p>Application ID: {applicationId}</p>
-      <VisaApplication data={applicationData} />{" "}
+      {/* <VisaApplication data={applicationData} />{" "} */}
+      <DetailComponent />
       {/* Pass the application data */}
     </div>
   );
