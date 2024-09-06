@@ -11,12 +11,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from dotenv import load_dotenv
 from pathlib import Path
-import os
 
-load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -85,7 +85,9 @@ ROOT_URLCONF = 'GoSLBackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -157,9 +159,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = os.getenv('SEND_GRID_API_KEY')
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
-
-#Gemini API
-
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
