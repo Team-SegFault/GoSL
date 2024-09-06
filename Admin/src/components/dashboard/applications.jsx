@@ -4,10 +4,22 @@ import { DataTable } from "@/components/common/datatable";
 import columns from "./columns";
 import visaApplicationsData from "./data.json";
 import { DETAILS_ROUTE } from "@/routes";
+import useApplicationDetails from "../visa-application/useApplicationViewModel";
+import { Skeleton } from "../ui/skeleton";
 
 const Dashboard = () => {
   const [applications, setApplications] = useState(visaApplicationsData);
   const navigate = useNavigate();
+  const { loading, data, error } = useApplicationDetails();
+  if (loading) {
+    return <Skeleton />;
+  }
+  if (error) {
+    return <></>;
+  }
+  if (data) {
+    setApplications(data);
+  }
   return (
     <div>
       <h1 className="text-xl font-bold">Visa Application Dashboard</h1>
