@@ -9,3 +9,4 @@ __init__.py
 *.sqlite3
 **/media/**
 **/migrations/**
+*.env

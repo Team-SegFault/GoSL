@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <style>
+            /* Inline CSS */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                color: #333333;
+            }
+
+            .email-container {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                background-color: #ffffff;
+                border: 1px solid #dddddd;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            .header {
+                background-color: #28a745;
+                color: #ffffff;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .content p {
+                margin: 0 0 15px;
+            }
+
+            .footer {
+                background-color: #f0f0f0;
+                text-align: center;
+                padding: 10px;
+                font-size: 12px;
+                color: #777777;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="email-container">
+            <div class="header">
+                <h1>Visa Application Approved</h1>
+            </div>
+            <div class="content">
+                <p>Dear {{ recipient_name }},</p>
+                <p>
+                    I am delighted to inform you that my visa application has
+                    been approved. I am incredibly excited about this
+                    opportunity and wanted to update you on the next steps.
+                </p>
+
+                <p><strong>Details of the Approved Visa:</strong></p>
+                <ul>
+                    <li><strong>Visa Type:</strong> {{ visa_type }}</li>
+                    <li>
+                        <strong>Date of Approval:</strong> {{ approval_date }}
+                    </li>
+                    <li><strong>Valid Until:</strong> {{ expiration_date }}</li>
+                    <li><strong>Travel Dates:</strong> {{ travel_dates }}</li>
+                </ul>
+
+                <p>
+                    If there are any additional requirements or documents needed
+                    from my side before my departure, please let me know. I am
+                    keen to ensure that all necessary arrangements are made
+                    promptly.
+                </p>
+
+                <p>
+                    Thank you once again for your support throughout this
+                    process.
+                </p>
+            </div>
+            <div class="footer">
+                Best regards,<br />
+                {{ your_full_name }}<br />
+            </div>
+        </div>
+    </body>
+</html>
