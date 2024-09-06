@@ -4,6 +4,7 @@ from .models import  VisaApplication, VisaType
 from .serializers import VisaApplicationSerializer, VisaTypeSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.http import JsonResponse
 from rest_framework import status
 import requests
 from fake_useragent import UserAgent
@@ -64,3 +65,7 @@ class InterpolNoticeView(APIView):
                     return Response({"notice_found": False}, status=status.HTTP_200_OK)
             else:
                 return Response({"error": "Failed to retrieve data from Interpol"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+def get_first(request):
+    one = VisaApplication.objects.first()
+    return JsonResponse({"first": one}, status=200)
