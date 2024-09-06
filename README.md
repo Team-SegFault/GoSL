@@ -11,7 +11,7 @@ This project has the following structure:
 
 ### Frontend
 
-This project is a starting point for a Flutter application.
+Flutter Based Mobile App
 
 To Set Up
 
@@ -39,6 +39,8 @@ pip install -r requirements.txt
 ```
 
 ### Admin
+
+Made with React
 
 To start the admin app, navigate to the Admin Folder, install the node modules and then run
 
