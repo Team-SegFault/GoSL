@@ -162,3 +162,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = os.getenv('SEND_GRID_API_KEY')
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
