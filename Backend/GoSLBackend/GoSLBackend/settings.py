@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'api.Person'
+
 
 # Application definition
 
@@ -38,14 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'api',
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
 
 # Keycloak JWT settings
 from datetime import timedelta
@@ -65,6 +62,14 @@ SIMPLE_JWT = {
     'ISSUER': 'http://localhost:8080/realms/gosl',
     'AUDIENCE': 'account',
     'TOKEN_LIFETIME': timedelta(minutes=5),
+}
+
+#REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication'
+    ],
 }
 
 MIDDLEWARE = [

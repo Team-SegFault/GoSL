@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import VisaApplication
 from .models import VisaType
+from .models import Person
 
 # Serialize for VisaType
 class VisaTypeSerializer(serializers.ModelSerializer):
@@ -24,3 +25,42 @@ class VisaApplicationSerializer(serializers.ModelSerializer):
         for field in read_only_fields:
             if field in self.fields:
                 self.fields[field].read_only = True
+
+
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
+    name = serializers.CharField(read_only=True)
+
+
+class UserRegistrationSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+    admin = serializers.BooleanField(write_only=True, default=False)
+
+    class Meta:
+        model = Person
+        fields = ['username', 'name', 'password', 'admin']
+
+    def create(self, validated_data):
+        password = validated_data.pop('password', None)
+        admin = validated_data.pop('admin', False)
+        user = super().create(validated_data)
+        if password:
+            user.set_password(password)
+            user.is_staff = admin
+            user.is_superuser = admin
+            user.save()
+        return user
+
+
+class PersonDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = ['name', 'username']
+
+
+class PersonUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = ['name']
+
