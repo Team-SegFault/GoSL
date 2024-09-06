@@ -89,11 +89,13 @@ class PersonalInfoForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilder(
       key: _formKey,
-      child: Column(
-        // children - elements with gap in between
-        children: [
-          for (var element in elements) ...[element, gap],
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          // children - elements with gap in between
+          children: [
+            for (var element in elements) ...[element, gap],
+          ],
+        ),
       ),
     );
   }
