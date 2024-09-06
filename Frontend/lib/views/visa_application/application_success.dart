@@ -1,4 +1,6 @@
 import 'package:GOSL/components/button.dart';
+import 'package:GOSL/views/home.dart';
+import 'package:GOSL/views/login/login.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationSuccessPage extends StatelessWidget {
@@ -46,7 +48,11 @@ class ApplicationSuccessPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: height*0.04,),
-            AppButton(text: 'View Application')
+            AppButton(text: 'Home Page',onPressed: () => {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ))
+            })
           ],
         ),
       ),
