@@ -22,11 +22,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
       theme: ThemeData(
+        primaryColor: const Color(0xFFF7C04A),
         scaffoldBackgroundColor: const Color(0xFFFAFAFA),
         textTheme: GoogleFonts.urbanistTextTheme().copyWith(
-          titleLarge: GoogleFonts.inter(),
-          titleMedium: GoogleFonts.inter(),
-          titleSmall: GoogleFonts.inter(),
+          titleLarge: GoogleFonts.playfairDisplay(),
+          titleMedium: GoogleFonts.playfairDisplay(),
+          titleSmall: GoogleFonts.playfairDisplay(),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
