@@ -117,7 +117,7 @@ class CreateAccountPage extends StatelessWidget {
                   SizedBox(height: height * 0.025),
                   TextField(
                     decoration: InputDecoration(
-                      labelText: ' Confirm Password',
+                      labelText: ' Password',
                       labelStyle: GoogleFonts.poppins(
                         color: Color(0xFFBABABA),
                       ),
@@ -150,30 +150,13 @@ class CreateAccountPage extends StatelessWidget {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: height * 0.005),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: () {
-                        print('Text clicked');
-                      },
-                      child: Text(
-                        'Forget Password',
-                        textAlign: TextAlign.end,
-                        style: GoogleFonts.poppins(
-                          color: Color(0xFFBABABA),
-                          fontSize: width * 0.03,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: height * 0.01),
+                  SizedBox(height: height * 0.03),
                   SizedBox(
                     width: double.infinity,
                     height: height * 0.07,
                     child: ElevatedButton(
                       onPressed: () {
-                        print('Login');
+                        print('Create account');
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
@@ -183,7 +166,7 @@ class CreateAccountPage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        'Login',
+                        'Create Account',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontSize: width * 0.04,
