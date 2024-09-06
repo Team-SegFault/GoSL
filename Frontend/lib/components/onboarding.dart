@@ -228,16 +228,17 @@ class OnBoarding extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        alignment: Alignment.center,
-                        height: 50,
-                        width: 100,
-                        child: const Stepper(),
-                      ),
+                      // Container(
+                      //   alignment: Alignment.center,
+                      //   height: 50,
+                      //   width: 100,
+                      //   child: const Stepper(),
+                      // ),
                       const Logo(fontSize: 20),
                       TextButton(
                         onPressed: () {
                           // Handle the skip button functionality
+                          Navigator.of(context).push(MaterialPageRoute(builder: ()))
                         },
                         child: Text(
                           buttonText,
@@ -265,6 +266,6 @@ class Stepper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.white);
+    return Container(color: Colors.transparent);
   }
 }
