@@ -16,9 +16,14 @@ const Dashboard = () => {
         columns={columns}
         data={applications}
         onRowClick={(row) => {
+          // console.log(row);
           // navigate to application details page
           navigate(DETAILS_ROUTE, {
-            state: { applicationId: row.getValue("name") },
+            state: {
+              applicationData: applications.find(
+                (app) => app.id === row.getValue("id")
+              ),
+            },
           });
         }}
       />

@@ -5,6 +5,7 @@
 This project has the following structure:
 - Frontend
 - Backend
+- Admin App
 
 ## Getting Started
 
@@ -12,14 +13,19 @@ This project has the following structure:
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+To Set Up
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Navigate to Frontend Folder
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+cd Frontend
+```
+
+Then run the flutter app on your device using
+
+```bash
+flutter run
+```
 
 ### Backend
 
@@ -30,4 +36,14 @@ cd Backend
 python3 -m venv .
 source bin/activate
 pip install -r requirements.txt
+```
+
+### Admin
+
+To start the admin app, navigate to the Admin Folder, install the node modules and then run
+
+```bash
+cd Admin
+npm install
+npm run [profile]
 ```

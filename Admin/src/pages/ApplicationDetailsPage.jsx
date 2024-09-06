@@ -1,37 +1,26 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import VisaApplication from "@/components/visa-application";
-import useApplicationDetails from "@/components/visa-application/useApplicationViewModel";
-import { Skeleton } from "@/components/ui/skeleton";
+// import React from "react";
+import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
+// import VisaApplication from "@/components/visa-application";
+// import useApplicationDetails from "@/components/visa-application/useApplicationViewModel";
+// import { Skeleton } from "@/components/ui/skeleton";
 import DetailComponent from "@/components/dashboard/applicationDetails";
 
 const ApplicationDetailsPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const { applicationId } = location.state || {};
-
-  // Use the custom hook
-  const { loading, applicationData, error } =
-    useApplicationDetails(applicationId);
-
-  if (loading) {
-    return (
-      <div>
-        <h1>Application Details</h1>
-        <Skeleton /> {/* Display a skeleton loader while loading */}
-      </div>
-    );
-  }
+  const { applicationData } = location.state || {};
 
   return (
-    <div>
-      <h1>Application Details</h1>
-      <p>Application ID: {applicationId}</p>
+    <div style={{ padding: 20 }}>
       {/* <VisaApplication data={applicationData} />{" "} */}
-      <DetailComponent />
+      <DetailComponent applicationData={applicationData} />
       {/* Pass the application data */}
     </div>
   );
+};
+
+ApplicationDetailsPage.propTypes = {
+  applicationData: PropTypes.object,
 };
 
 export default ApplicationDetailsPage;
