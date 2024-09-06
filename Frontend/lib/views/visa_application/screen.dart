@@ -4,6 +4,7 @@ import 'package:GOSL/views/visa_application/form_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
+import 'application_success.dart';
 import 'form_sections/arrival_details.dart';
 import 'form_sections/contact_form_details.dart';
 import 'dynamic_form.dart';
@@ -135,5 +136,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
 
   Future postVisaApplication() async {
     // Post visa application data to the server
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => const ApplicationSuccessPage()),
+    );
+
   }
 }
