@@ -41,6 +41,32 @@ INSTALLED_APPS = [
     'api',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+# Keycloak JWT settings
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ALGORITHM': 'RS256',
+    'SIGNING_KEY': '',  # Leave this empty since we'll use the public key from Keycloak
+    'VERIFYING_KEY': '''
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuY+UwddGQiq+wE65pXA3xxceuCo62D9Vp+VOhwune+pC+wEspb4TKyKKLfTTp8uaPHGB9iGN+G+nymv6t8xAGoGBNIVb+7hgtSZrM2IIraKrCIQ5jBYHeOnh+jfkEBULFIcscosIlEyBt3i2p5WNQIxWS1uXR77x1R80+cVKv0JFT6QRxTzvfFux869qKajcvlt4vC27skQ1rTpnSskfDJZ8qox96O3pWeFB4gVUfTInDJmzt4v0TpwKnQ+vVKICSoYP84THG3V+9YTFESZRNV94CiCbT+2yP6ZPtONjsjzbzUIdMBbdVKFolFfogYPl/xkEvvpRHobFMnXEz22kSQIDAQAB
+    -----END PUBLIC KEY-----
+    ''',
+    'AUTH_HEADER_TYPES': ('Bearer ',),
+    'USER_ID_FIELD': 'sub',
+    'USER_ID_CLAIM': 'sub',
+    'JWK_URL': 'http://localhost:8080/realms/gosl/protocol/openid-connect/certs',
+    'ISSUER': 'http://localhost:8080/realms/gosl',
+    'AUDIENCE': 'account',
+    'TOKEN_LIFETIME': timedelta(minutes=5),
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
