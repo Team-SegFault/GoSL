@@ -11,22 +11,21 @@ class LoginPage extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
 
-    // Get the keyboard visibility status (viewInsets)
     final double keyboardVisible = MediaQuery.of(context).viewInsets.bottom;
 
     return Scaffold(
       backgroundColor: Color(0xfffafafa),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(width * 0.05), // Responsive padding
+          padding: EdgeInsets.all(width * 0.05),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AnimatedContainer(
-                // Animate the size change when keyboard is visible
+
                 duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-                height: keyboardVisible == 0 ? height * 0.25 : height * 0.1,
+                curve: Curves.easeInOutExpo,
+                height: keyboardVisible == 0 ? height * 0.185 : height * 0.1,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,23 +33,23 @@ class LoginPage extends StatelessWidget {
                   Text(
                     '🇱🇰Go',
                     style: GoogleFonts.poppins(
-                        fontSize: width * 0.1, // Responsive font size
+                        fontSize: width * 0.1,
                         fontWeight: FontWeight.w500,
                         color: Color(0xFFF7C04A)),
                   ),
                   Text(
                     'SL',
                     style: GoogleFonts.poppins(
-                        fontSize: width * 0.1, // Responsive font size
+                        fontSize: width * 0.1,
                         fontWeight: FontWeight.w700,
                         color: Color(0xFFF7C04A)),
                   )
                 ],
               ),
-              SizedBox(height: height * 0.01), // Responsive space
+              SizedBox(height: height * 0.01),
               Container(
                 alignment: Alignment.center,
-                width: width * 0.5, // Responsive width
+                width: width * 0.5,
                 child: Text.rich(
                   textAlign: TextAlign.center,
                   TextSpan(
@@ -68,11 +67,11 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: height * 0.1, // Responsive height
+                height: height * 0.075,
               ),
               Container(
                 padding: EdgeInsets.only(
-                  top: width * 0.06, // Responsive padding
+                  top: width * 0.06,
                   bottom: width * 0.035,
                   right: width * 0.06,
                   left: width * 0.06,
@@ -98,7 +97,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: height * 0.03), // Responsive space
+                  SizedBox(height: height * 0.03),
                   TextField(
                     decoration: InputDecoration(
                       labelText: ' Password',
@@ -116,7 +115,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     obscureText: true,
                   ),
-                  SizedBox(height: height * 0.005), // Responsive space
+                  SizedBox(height: height * 0.005),
                   Container(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
@@ -128,15 +127,15 @@ class LoginPage extends StatelessWidget {
                         textAlign: TextAlign.end,
                         style: GoogleFonts.poppins(
                           color: Color(0xFFBABABA),
-                          fontSize: width * 0.03, // Responsive font size
+                          fontSize: width * 0.03,
                         ),
                       ),
                     ),
                   ),
                   SizedBox(height: height * 0.01),
                   SizedBox(
-                    width: double.infinity, // Full width button
-                    height: height * 0.07, // Responsive height
+                    width: double.infinity,
+                    height: height * 0.07,
                     child: ElevatedButton(
                       onPressed: () {
                         print('Login');
@@ -152,18 +151,18 @@ class LoginPage extends StatelessWidget {
                         'Login',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
-                          fontSize: width * 0.04, // Responsive font size
+                          fontSize: width * 0.04,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: height * 0.01), // Responsive space
+                  SizedBox(height: height * 0.01),
                   Text.rich(
                     TextSpan(
                       text: 'Read our ',
                       style: GoogleFonts.poppins(
-                        fontSize: width * 0.025, // Responsive font size
+                        fontSize: width * 0.025,
                         color: Color(0xFFBABABA),
                       ),
                       children: [
@@ -210,18 +209,23 @@ class LoginPage extends StatelessWidget {
                   fontSize: width * 0.03, // Responsive font size
                 ),
               ),
+              SizedBox(height: height * 0.02),
               ElevatedButton.icon(
-                icon: Image.asset('assets/icons/google.png', height: 24.0),
+                icon: Image.asset('assets/icons/google.png', height: 20.0),
                 label: const Text('Sign in with Google'),
                 onPressed: () {
-                  // Add Google sign-in logic here
+
                 },
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                   foregroundColor: Colors.black,
                   backgroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity, 50),
+                  minimumSize: Size(width*0.6, 50),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  side: BorderSide(
+                    color: Color(0xFFE8E8E8),
                   ),
                 ),
               ),
@@ -230,14 +234,14 @@ class LoginPage extends StatelessWidget {
                 icon: Icon(Icons.facebook, color: Colors.white),
                 label: const Text('Sign in with Facebook'),
                 onPressed: () {
-                  // Add Facebook sign-in logic here
+
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Color(0xFF1877F2),
-                  minimumSize: const Size(double.infinity, 50),
+                  minimumSize: Size(width*0.6, 50),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
               ),
