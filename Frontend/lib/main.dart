@@ -4,6 +4,8 @@ import 'package:GOSL/views/mytrip.dart';
 import 'package:GOSL/views/home.dart';
 import 'package:GOSL/views/profileview.dart';
 import 'package:GOSL/views/wishlistview.dart';
+import 'package:GOSL/theme.dart';
+import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -38,6 +38,10 @@ dependencies:
   google_fonts: ^6.2.1
   iconsax: ^0.0.8
   flutter_svg: ^2.0.10+1
+  flutter_form_builder: ^9.4.1
+  form_builder_validators: ^11.0.0
+  easy_stepper: ^0.8.5+1
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
