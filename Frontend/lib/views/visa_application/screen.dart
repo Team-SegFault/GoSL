@@ -1,11 +1,13 @@
 import 'package:GOSL/components/stepper.dart';
+import 'package:GOSL/views/visa_application/form_sections/passport_details.dart';
 import 'package:GOSL/views/visa_application/form_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-import 'contact_form_details.dart';
+import 'form_sections/arrival_details.dart';
+import 'form_sections/contact_form_details.dart';
 import 'dynamic_form.dart';
-import 'personal_info_form.dart';
+import 'form_sections/personal_info_form.dart';
 
 class VisaApplicationPage extends StatefulWidget {
   @override
@@ -27,7 +29,12 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
         children: [
           FormStepper(
             activeStep: _currentPageIndex,
-            titles: const ['Personal Info', 'Contact Details'],
+            titles: const [
+              'Personal Info',
+              'Contact Details',
+              'Passport Details',
+              'Arrival Details',
+            ],
             onStepTapped: (index) {
               _pageController.jumpToPage(index);
             },
@@ -68,9 +75,31 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                         curve: Curves.easeInOut,
                       );
                     },
-                    isLastStep: true,  // Last step, show "Submit"
+                    isLastStep: false,  // Last step, show "Submit"
                   ),
                 ),
+                FormWrapper(
+                    child:DynamicForm(fields: passportDetailsFields,
+                        onActionButtonClick: (formData) {
+                          setState(() {
+                            _visaApplicationData['passportDetails'] = formData;
+                          });
+                          // Submit the form data
+                          print(_visaApplicationData);
+                        },
+                        isLastStep: false)
+                ),
+                FormWrapper(
+                    child: DynamicForm(
+                        fields: arrivalDetails,
+                        onActionButtonClick: (formData){
+                          setState(() {
+                            _visaApplicationData['arrivalDetails'] = formData;
+                          });
+                          // Submit the form data
+                          print(_visaApplicationData);
+                        }, isLastStep: true)
+                )
               ],
             ),
           ),

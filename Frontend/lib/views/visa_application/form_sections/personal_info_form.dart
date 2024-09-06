@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_image_picker/form_builder_image_picker.dart';
 
 List<Widget> personalInfoFields  = [
   FormBuilderTextField(
@@ -21,12 +22,9 @@ List<Widget> personalInfoFields  = [
   ),
   FormBuilderDateTimePicker(
     name: 'birthdate',
-    decoration: const InputDecoration(labelText: 'Birthdate'),
+    decoration: const InputDecoration(labelText: 'Date of Birth'),
     inputType: InputType.date,
-    initialDate: DateTime.now(),
-    initialValue: DateTime.now(),
     firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
   ),
   FormBuilderDropdown(
     name: 'occupation',
@@ -50,7 +48,7 @@ List<Widget> personalInfoFields  = [
         .toList(),
   ),
   FormBuilderDropdown(
-    name: 'gender',
+    name: 'civil_status',
     decoration: const InputDecoration(labelText: 'Civil Status'),
     items: ['Married', 'Single', 'Divorced', 'Widowed']
         .map(
@@ -62,4 +60,12 @@ List<Widget> personalInfoFields  = [
     )
         .toList(),
   ),
+  FormBuilderImagePicker(
+    name: 'photo',
+    decoration: const InputDecoration(
+      labelText: 'Passport sized Photo',
+      helperText: 'Please upload a clear passport sized photo of yourself',
+      helperMaxLines: 3
+    ),
+  )
 ];

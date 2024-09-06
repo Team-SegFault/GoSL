@@ -42,6 +42,7 @@ dependencies:
   easy_stepper: ^0.8.5+1
   gap: ^3.0.1
   hugeicons: ^0.0.7
+  form_builder_image_picker: ^4.1.0
 
 dev_dependencies:
   flutter_test:
