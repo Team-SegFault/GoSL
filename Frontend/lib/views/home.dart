@@ -5,8 +5,6 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui' as ui show ImageFilter;
 
-import 'package:iconsax/iconsax.dart';
-
 import '../components/button.dart';
 
 class HomePage extends StatelessWidget {
@@ -195,7 +193,7 @@ class VisaSimplified extends StatelessWidget {
             softWrap: true,
             style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
           ),
-          Gap(8),
+          const Gap(8),
           SizedBox(
               width: double.infinity,
               child: AppButton(text: "Apply Visa")),

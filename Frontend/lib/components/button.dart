@@ -5,7 +5,7 @@ class AppButton extends StatelessWidget {
 
   final Function()? onPressed;
 
-  AppButton({
+  const AppButton({
     super.key,
     required this.text,
     this.onPressed,
@@ -14,7 +14,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: onPressed ?? () {},
       style: ElevatedButton.styleFrom(
         backgroundColor: Theme.of(context).colorScheme.primary,
         padding: const EdgeInsets.all(14),
@@ -22,7 +22,7 @@ class AppButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      child: Text(text, style: TextStyle(color: Colors.black)),
+      child: Text(text, style: const TextStyle(color: Colors.black)),
     );
   }
 }
