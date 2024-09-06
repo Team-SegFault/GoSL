@@ -63,7 +63,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[0]!,
-                    fields: personalInfoFields,
+                    fields: personalInfoFields(),
                     saveForm: (formData) async {
                       await _saveFormData();
                     },
@@ -74,7 +74,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[1]!,
-                    fields: contactDetailsFields,
+                    fields: contactDetailsFields(),
                     saveForm: (formData) {
                       _visaApplicationData['contactDetails'] = formData;
                     },
@@ -85,7 +85,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[2]!,
-                    fields: passportDetailsFields,
+                    fields: passportDetailsFields(),
                     saveForm: (formData) {
                       _visaApplicationData['passportDetails'] = formData;
                     },
@@ -96,7 +96,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[3]!,
-                    fields: arrivalDetails,
+                    fields: arrivalDetails(),
                     saveForm: (formData) {
                       _visaApplicationData['arrivalDetails'] = formData;
                     },
