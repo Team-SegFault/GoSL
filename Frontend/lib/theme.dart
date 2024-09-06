@@ -15,8 +15,8 @@ var theme = ThemeData(
   ),
   textTheme: GoogleFonts.urbanistTextTheme().copyWith(
     titleLarge: GoogleFonts.playfairDisplay(),
-    titleMedium: GoogleFonts.playfairDisplay(),
-    titleSmall: GoogleFonts.playfairDisplay(),
+    titleMedium: GoogleFonts.poppins(),
+    titleSmall: GoogleFonts.poppins(),
   ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Color(0xfffafafa),
@@ -30,6 +30,7 @@ var theme = ThemeData(
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
+      elevation: 0,
       backgroundColor: Color(0xFFF7C04A),
       padding: const EdgeInsets.all(14),
       shape: RoundedRectangleBorder(
