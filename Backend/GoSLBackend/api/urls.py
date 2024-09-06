@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import VisaTypeListCreate, VisaTypeDetail, VisaApplicationListCreate, VisaApplicationDetail,InterpolNoticeView
-from .views import CustomLoginView, CustomLogoutView, SignUpView, PersonRetrieveView, PersonUpdateView
+from .views import CustomLoginView, CustomLogoutView, SignUpView, PersonRetrieveView, PersonUpdateView, DestinationSurfView, AnimalsSurfView, FoodSurfView, EventsSurfView
 
 from .utils import confirm_visa_application
 urlpatterns = [
@@ -15,5 +15,9 @@ urlpatterns = [
     # path('get-token', CustomObtainAuthToken.as_view(), name='get-token-view'),
     path('account/<slug:pk>', PersonRetrieveView.as_view(), name='person-retrieve-view'),
     path('account-update/<slug:pk>', PersonUpdateView.as_view(), name='account-update-view'),
-    path('confirm-visa-application/', confirm_visa_application, name='confirm-visa-application')
+    path('confirm-visa-application/', confirm_visa_application, name='confirm-visa-application'),
+    path('destination-surf/', DestinationSurfView.as_view(), name='destination-surf'),
+    path('animals-surf/', AnimalsSurfView.as_view(), name='animals-surf'),
+    path('food-surf/', FoodSurfView.as_view(), name='food-surf'),
+    path('events-surf/', EventsSurfView.as_view(), name='events-surf'),
 ]

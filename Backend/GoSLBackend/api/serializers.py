@@ -27,6 +27,14 @@ class VisaApplicationSerializer(serializers.ModelSerializer):
                 self.fields[field].read_only = True
 
 
+# Common Surf Serializer
+class CommonSurfSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    compact_description = serializers.CharField()
+    description = serializers.CharField()
+    image = serializers.CharField()
+
+
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()

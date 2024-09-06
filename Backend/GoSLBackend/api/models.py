@@ -117,3 +117,44 @@ class Person(AbstractUser):
     REQUIRED_FIELDS = ['name', 'password']
 
     objects = UserManager()
+
+
+
+
+class Destination(models.Model):
+    name = models.CharField(max_length=100)
+    compact_description = models.CharField(max_length=200)
+    description = models.TextField()
+    image_url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+    
+
+class Animals(models.Model):
+    name = models.CharField(max_length=100)
+    compact_description = models.CharField(max_length=200)
+    description = models.TextField()
+    image_url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+    
+class Food(models.Model):
+    name = models.CharField(max_length=100)
+    compact_description = models.CharField(max_length=200)
+    description = models.TextField()
+    image_url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+    
+
+class Events(models.Model):
+    name = models.CharField(max_length=100)
+    compact_description = models.CharField(max_length=200)
+    description = models.TextField()
+    image_url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name

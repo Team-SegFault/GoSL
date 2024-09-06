@@ -9,12 +9,12 @@ import requests
 from fake_useragent import UserAgent
 # Create your views here.
 from rest_framework import generics
-from .models import  VisaApplication, VisaType
+from .models import  VisaApplication, VisaType, Destination, Animals, Food, Events
 from .serializers import VisaApplicationSerializer, VisaTypeSerializer
 # from .permissions import KeyCloakOfficerPermission
 
 from django.contrib.auth import authenticate, login, logout
-from .serializers import LoginSerializer, UserRegistrationSerializer, PersonDetailSerializer, PersonUpdateSerializer
+from .serializers import LoginSerializer, UserRegistrationSerializer, PersonDetailSerializer, PersonUpdateSerializer, CommonSurfSerializer
 from .permissions import IsAuthenticated, AccessOwnAccountPermission
 from .models import Person
 from django.views.decorators.csrf import csrf_exempt
@@ -40,6 +40,24 @@ class VisaApplicationListCreate(generics.ListCreateAPIView):
 class VisaApplicationDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = VisaApplication.objects.all()
     serializer_class = VisaApplicationSerializer
+
+
+
+class DestinationSurfView(generics.ListCreateAPIView):
+    queryset = Destination.objects.all()
+    serializer_class = CommonSurfSerializer
+
+class AnimalsSurfView(generics.ListCreateAPIView):
+    queryset = Animals.objects.all()
+    serializer_class = CommonSurfSerializer
+
+class FoodSurfView(generics.ListCreateAPIView):
+    queryset = Food.objects.all()
+    serializer_class = CommonSurfSerializer
+
+class EventsSurfView(generics.ListCreateAPIView):
+    queryset = Events.objects.all()
+    serializer_class = CommonSurfSerializer
 
 
 
