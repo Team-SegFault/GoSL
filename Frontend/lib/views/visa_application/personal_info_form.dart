@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gap/gap.dart';
@@ -87,14 +88,16 @@ class PersonalInfoForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FormBuilder(
-      key: _formKey,
-      child: SingleChildScrollView(
-        child: Column(
-          // children - elements with gap in between
-          children: [
-            for (var element in elements) ...[element, gap],
-          ],
+    return FormWrapper(
+      child: FormBuilder(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
+            // children - elements with gap in between
+            children: [
+              for (var element in elements) ...[element, gap],
+            ],
+          ),
         ),
       ),
     );
