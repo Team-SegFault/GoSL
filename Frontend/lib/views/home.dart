@@ -1,4 +1,5 @@
 import 'package:GOSL/components/home_card.dart';
+import 'package:GOSL/views/visa_application/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -42,7 +43,9 @@ class HomePage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Locations", style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.w500)),
+                Text("Locations",
+                    style: GoogleFonts.inter(
+                        fontSize: 20, fontWeight: FontWeight.w500)),
                 GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
@@ -50,7 +53,9 @@ class HomePage extends StatelessWidget {
                     },
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(8.0, 0, 0, 0),
-                      child: Text("See More", style: GoogleFonts.inter(fontSize: 13, color: const Color(0x70000000))),
+                      child: Text("See More",
+                          style: GoogleFonts.inter(
+                              fontSize: 13, color: const Color(0x70000000))),
                     ))
               ],
             ),
@@ -126,7 +131,8 @@ class CoverPhoto extends StatelessWidget {
                     child: BackdropFilter(
                       filter: ui.ImageFilter.blur(sigmaX: 9, sigmaY: 9),
                       child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 18),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 14, horizontal: 18),
                           decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
@@ -138,14 +144,19 @@ class CoverPhoto extends StatelessWidget {
                               ],
                               borderRadius: BorderRadius.circular(12),
                               color: const Color.fromRGBO(147, 147, 147, 0.31),
-                              border: Border.all(width: 0.9, style: BorderStyle.solid, color: const Color(0x80FFFFFF))),
+                              border: Border.all(
+                                  width: 0.9,
+                                  style: BorderStyle.solid,
+                                  color: const Color(0x80FFFFFF))),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 "Search a destination",
                                 style: GoogleFonts.poppins(
-                                    fontSize: 16, fontWeight: FontWeight.w600, color: const Color(0xFFD9D9D9)),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xFFD9D9D9)),
                               ),
                               const Icon(
                                 Icons.search_outlined,
@@ -180,7 +191,10 @@ class VisaSimplified extends StatelessWidget {
           RichText(
             textAlign: TextAlign.left,
             text: TextSpan(
-              style: GoogleFonts.poppins(fontSize: 24, fontWeight: FontWeight.w500, color: Colors.black),
+              style: GoogleFonts.poppins(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
               text: "Visa ",
               children: const [
                 TextSpan(
@@ -193,12 +207,20 @@ class VisaSimplified extends StatelessWidget {
           Text(
             "You can now apply for Visa to Sri Lanka right within the GoSL App. No more hassle of visiting embassies or waiting in long queues.",
             softWrap: true,
-            style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
+            style: GoogleFonts.poppins(
+                fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
           ),
           Gap(8),
           SizedBox(
               width: double.infinity,
-              child: AppButton(text: "Apply Visa")),
+              child: AppButton(
+                text: "Apply Visa",
+                onPressed: () => {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const VisaApplicationPage(),
+                  ))
+                },
+              )),
         ],
       ),
     );
