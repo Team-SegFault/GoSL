@@ -3,3 +3,12 @@ include/
 lib/
 lib64
 *.cfg
+venv/
+env/
+*.env
+__init__.py
+**/__pycache__/
+*.sqlite3
+**/media/**
+**/migrations/**
+*.env
