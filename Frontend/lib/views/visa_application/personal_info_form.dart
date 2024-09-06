@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gap/gap.dart';
 
+import '../../components/button.dart';
+
 class PersonalInfoForm extends StatelessWidget {
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -93,33 +95,6 @@ class PersonalInfoForm extends StatelessWidget {
           for (var element in elements) ...[element, gap],
         ],
       ),
-    );
-  }
-}
-
-class AppButton extends StatelessWidget {
-  final String text;
-
-  final Function()? onPressed;
-
-  const AppButton({
-    super.key,
-    required this.text,
-    this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.all(14),
-          shape: RoundedRectangleBorder(
-            borderRadius:
-            BorderRadius.circular(10), // Adjust the border radius as needed
-          ),
-          elevation: 0),
-      onPressed: onPressed,
-      child: Text(text, style: const TextStyle(color: Colors.black)),
     );
   }
 }

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const surface = Color(0xfffafafa);
 const primary = Color(0xFFF7C04A);
 
 var theme = ThemeData(
   colorScheme: const ColorScheme(
-    surface: surface,
+    surface: Color(0xfffafafa),
     onSurface: Colors.black,
     brightness: Brightness.light,
     primary: primary,
@@ -30,6 +29,23 @@ var theme = ThemeData(
       fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: primary,
+      padding: const EdgeInsets.all(14),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
+  ),
+  buttonTheme: ButtonThemeData(
+    buttonColor: primary,
+    textTheme: ButtonTextTheme.primary,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+    padding: const EdgeInsets.all(14),
   ),
   inputDecorationTheme: InputDecorationTheme(
     labelStyle: const TextStyle(color: Colors.black),

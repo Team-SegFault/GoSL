@@ -1,10 +1,13 @@
 import 'package:GOSL/components/home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui' as ui show ImageFilter;
 
 import 'package:iconsax/iconsax.dart';
+
+import '../components/button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -192,37 +195,10 @@ class VisaSimplified extends StatelessWidget {
             softWrap: true,
             style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-            child: Align(
-              alignment: Alignment.center,
-              child: TextButton(
-                onPressed: () => {debugPrint("Button Pressed")},
-                child: Container(
-                  // Use primary color from theme dynamically
-
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "Apply Visa",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(
-                              fontSize: 16, fontWeight: FontWeight.w500, color: const Color(0xFF0C0507)),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+          Gap(8),
+          SizedBox(
+              width: double.infinity,
+              child: AppButton(text: "Apply Visa")),
         ],
       ),
     );
