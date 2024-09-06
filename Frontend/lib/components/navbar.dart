@@ -1,6 +1,6 @@
 import 'package:GOSL/components/navbaritem.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({
@@ -23,10 +23,10 @@ class CustomNavBar extends StatelessWidget {
       child: const Padding(
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 31),
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          NavBarItem(pageIndex: 0, icon: Iconsax.home_2, title: 'Home'),
-          NavBarItem(pageIndex: 1, icon: Iconsax.send_2, title: 'MyTrip'),
-          NavBarItem(pageIndex: 2, icon: Iconsax.heart, title: 'Wishlist'),
-          NavBarItem(pageIndex: 3, icon: Iconsax.profile_tick, title: 'Profile'),
+          NavBarItem(pageIndex: 0, icon: HugeIcons.strokeRoundedHome01, title: 'Home'),
+          NavBarItem(pageIndex: 1, icon: HugeIcons.strokeRoundedSent, title: 'MyTrip'),
+          NavBarItem(pageIndex: 2, icon: HugeIcons.strokeRoundedFavourite, title: 'Wishlist'),
+          NavBarItem(pageIndex: 3, icon: HugeIcons.strokeRoundedUser, title: 'Profile'),
         ]),
       ),
     );
