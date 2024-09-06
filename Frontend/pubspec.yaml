@@ -70,6 +70,9 @@ flutter:
     - assets/surf/leapord.jpg
     - assets/surf/bg.jpg
     - assets/surf/surfbg.png
+    - assets/surf/animal_surf/bigSquirrel.png
+    - assets/surf/animal_surf/leapord.jpg
+    - assets/surf/animal_surf/elephant.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
