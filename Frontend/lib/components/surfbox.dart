@@ -27,16 +27,11 @@ class SurfBox extends StatelessWidget {
             height: 200,
             width: 171,
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomCenter,
-                colors: [Colors.white60, Colors.white10],
-              ),
               borderRadius: BorderRadius.circular(25),
               border: Border.all(width: 1, color: Colors.white30),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.6),
+                  color: Colors.black.withOpacity(0.4),
                   spreadRadius: 2,
                   blurRadius: 5,
                   offset: const Offset(0, 3), // Shadow position
