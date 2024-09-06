@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:GOSL/components/navbar.dart';
 import 'package:GOSL/controllers/navbar_controller.dart';
 import 'package:GOSL/views/mytrip.dart';
@@ -5,7 +6,6 @@ import 'package:GOSL/views/home.dart';
 import 'package:GOSL/views/profileview.dart';
 import 'package:GOSL/views/wishlistview.dart';
 import 'package:GOSL/theme.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
