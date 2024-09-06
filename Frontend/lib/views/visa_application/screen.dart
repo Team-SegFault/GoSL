@@ -179,7 +179,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     var responseBody = await response.stream.bytesToString();
     print(responseBody);
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const ApplicationSuccessPage()),
       );
