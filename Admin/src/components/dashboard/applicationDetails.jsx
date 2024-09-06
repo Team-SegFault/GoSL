@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, AlertCircle } from "lucide-react";
 
 import PropTypes from "prop-types";
+import axios from "axios";
 DetailComponent.propTypes = {
   applicationData: PropTypes.object.isRequired,
 };
@@ -27,13 +28,13 @@ export default function DetailComponent({ applicationData }) {
     civil_status: "Married",
     date_of_birth: "2000-01-01",
     passport_size_photo:
-      "http://localhost:8000/media/images/default_h6l8pVr.jpg",
+      "https://visafoto.com/img/source355x388_in.jpg",
     passport_issue_country: "United Kingdom",
     passport_number: "12342CX2342K",
     passport_issue_date: "2022-01-01",
     passport_expiry_date: "2030-01-01",
     passport_bio_page:
-      "http://localhost:8000/media/passport_bio/ray-so-export_hK4rZdR.png",
+      "https://i.sstatic.net/y4d9O.jpg",
     phone: "+941134293423",
     address: "No 1, Help Me Avenue, New York, USA.",
     email: "hello@example.com",
@@ -47,8 +48,9 @@ export default function DetailComponent({ applicationData }) {
   };
 
   const handleApprove = () => {
-    // Implement approval logic here
-    console.log("Application approved");
+   
+    axios.get("http://127.0.0.1:8000/api/confirm-visa-application/")
+
   };
 
   const handleDeny = () => {
@@ -85,6 +87,14 @@ export default function DetailComponent({ applicationData }) {
                   value={new Date(
                     applicationData.form_created
                   ).toLocaleString()}
+                  readOnly
+                />
+              </div>
+                            <div className="space-y-2">
+                <Label htmlFor="form_created">Has A RedNotice</Label>
+                <Input
+                  id="form_created"
+                  value={"No"}
                   readOnly
                 />
               </div>
@@ -162,7 +172,7 @@ export default function DetailComponent({ applicationData }) {
                   style={{ width: "300px", height: "400px" }}
                 >
                   <img
-                    src={applicationData.passport_photo}
+                     src={"https://visafoto.com/img/source355x388_in.jpg"}
                     alt="Passport photo"
                     className="w-full h-full object-cover"
                   />
@@ -177,7 +187,8 @@ export default function DetailComponent({ applicationData }) {
                   style={{ width: "600px", height: "400px" }}
                 >
                   <img
-                    src={applicationData.passport_bio_photo}
+                   
+                    src={"https://www.canada.ca/content/dam/ircc/images/services/canadian-passports/passport-data-page-large.jpg"}
                     alt="Passport bio page photo"
                     className="w-full h-full object-cover"
                   />
@@ -218,7 +229,7 @@ export default function DetailComponent({ applicationData }) {
             Cancel
           </Button>
           <Button
-            disabled={!applicationData.isPending}
+            // disabled={!applicationData.isPending}
             variant="destructive"
             onClick={handleDeny}
           >
@@ -226,7 +237,7 @@ export default function DetailComponent({ applicationData }) {
             Deny
           </Button>
           <Button
-            disabled={!applicationData.isPending}
+            // disabled={!applicationData.isPending}
             variant="default"
             onClick={handleApprove}
           >
