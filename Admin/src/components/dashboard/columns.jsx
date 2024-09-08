@@ -5,6 +5,10 @@ import { ApplicationStatus } from "@/lib/status.enum";
 
 const columns = [
   {
+    header: "ID",
+    accessorKey: "id",
+  },
+  {
     header: "Name",
     accessorKey: "name",
   },

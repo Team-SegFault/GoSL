@@ -1,5 +1,6 @@
 {
   "name": "gosl-admin",
+  "proxy": "http://127.0.0.1:8000/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +16,7 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-popover": "^1.1.1",
     "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-keycloak/web": "^3.4.0",
     "@tanstack/react-table": "^8.20.5",

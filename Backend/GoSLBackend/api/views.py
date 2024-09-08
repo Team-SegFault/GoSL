@@ -4,6 +4,7 @@ from .models import  VisaApplication, VisaType
 from .serializers import VisaApplicationSerializer, VisaTypeSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.http import JsonResponse
 from rest_framework import status
 import requests
 from fake_useragent import UserAgent

@@ -10,9 +10,8 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
-from pathlib import Path
 from dotenv import load_dotenv
+from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'api',
+    'chat',
 ]
 
 # Keycloak JWT settings
@@ -174,3 +174,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = os.getenv('SEND_GRID_API_KEY')
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')

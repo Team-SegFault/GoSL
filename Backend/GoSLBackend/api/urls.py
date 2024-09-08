@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import VisaTypeListCreate, VisaTypeDetail, VisaApplicationListCreate, VisaApplicationDetail,InterpolNoticeView
 from .views import CustomLoginView, CustomLogoutView, SignUpView, PersonRetrieveView, PersonUpdateView, DestinationSurfView, AnimalsSurfView, FoodSurfView, EventsSurfView, VisaApplicationUpdateStatus
 
