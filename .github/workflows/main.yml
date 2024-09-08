@@ -2,8 +2,6 @@ name: Deploy in Push to stable branch
 
 on:
   push:
-    branches:
-      - stable
 
 jobs:
   deploy:
