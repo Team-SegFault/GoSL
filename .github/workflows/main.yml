@@ -29,3 +29,6 @@ jobs:
           sudo systemctl restart gunicorn
           sudo systemctl reload nginx
         EOF
+    - name: Check weather server is running
+      run: |
+        curl --unix-socket /run/gunicorn.sock http://localhost || echo "Gunicorn server is not running!"
