@@ -2,6 +2,8 @@ name: Deploy in Push to stable branch
 
 on:
   push:
+    branches:
+      - stable
 
 jobs:
   deploy:
@@ -21,6 +23,7 @@ jobs:
         ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
           cd /home/GoSL/GoSL
           git pull origin stable
+          sudo systemctl daemon-reload
           sudo systemctl restart gunicorn
           sudo systemctl reload nginx
         EOF
