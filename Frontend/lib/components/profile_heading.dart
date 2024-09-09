@@ -36,13 +36,24 @@ class ProfileHeading extends StatelessWidget {
             ),
           ],
         ),
-        IconButton(
-          icon: const HugeIcon(icon: HugeIcons.strokeRoundedNotification02, color: Colors.black),
-          onPressed: () {
-            debugPrint("Notification Pressed");
-          },
-        )
+        const NotificationButton()
       ]),
+    );
+  }
+}
+
+class NotificationButton extends StatelessWidget {
+  const NotificationButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const HugeIcon(icon: HugeIcons.strokeRoundedNotification02, color: Colors.black),
+      onPressed: () {
+        debugPrint("Notification Pressed");
+      },
     );
   }
 }

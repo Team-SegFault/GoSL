@@ -3,17 +3,18 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:gap/gap.dart';
 
 class DynamicForm extends StatelessWidget {
-  final List<Widget> fields;  // List of field definitions
+  final List<Widget> fields; // List of field definitions
   final Function() onActionButtonClick;
   final bool isLastStep;
 
   final GlobalKey<FormBuilderState> formKey;
 
-  DynamicForm({
+  const DynamicForm({
+    super.key,
     required this.formKey,
     required this.fields,
     required this.onActionButtonClick,
-    required this.isLastStep,
+    this.isLastStep = false,
   });
 
   @override
@@ -25,7 +26,7 @@ class DynamicForm extends StatelessWidget {
           // Display form fields with gap
           for (final field in fields) ...[
             field,
-            const Gap(15),
+            const Gap(30),
           ],
           SizedBox(
             width: double.infinity,
@@ -33,7 +34,7 @@ class DynamicForm extends StatelessWidget {
               onPressed: () async {
                 onActionButtonClick();
               },
-              child: Text(isLastStep ? 'Submit' : 'Next'),  // Display "Submit" or "Next"
+              child: Text(isLastStep ? 'Submit' : 'Next'), // Display "Submit" or "Next"
             ),
           ),
         ],

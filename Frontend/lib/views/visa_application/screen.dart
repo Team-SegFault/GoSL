@@ -1,4 +1,5 @@
 import 'package:GOSL/utils/datestring.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path; // For basename
 import 'package:http_parser/http_parser.dart'; // For MediaType
@@ -16,6 +17,8 @@ import 'dynamic_form.dart';
 import 'form_sections/personal_info_form.dart';
 
 class VisaApplicationPage extends StatefulWidget {
+  const VisaApplicationPage({super.key});
+
   @override
   State<VisaApplicationPage> createState() => _VisaApplicationPageState();
 }
@@ -37,8 +40,9 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Visa Application',
+          style: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold),
         ),
       ),
       body: Column(
@@ -70,7 +74,6 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                       initialValues: _visaApplicationData[0] ?? {},
                     ),
                     onActionButtonClick: goToNextPage,
-                    isLastStep: false,
                   ),
                 ),
                 FormWrapper(
@@ -80,32 +83,26 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
                       initialValues: _visaApplicationData[1] ?? {},
                     ),
                     onActionButtonClick: goToNextPage,
-                    isLastStep: false,
                   ),
                 ),
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[2]!,
-                    fields: passportDetailsFields(
-                        initialValues: _visaApplicationData[2] ?? {}
-                    ),
+                    fields: passportDetailsFields(initialValues: _visaApplicationData[2] ?? {}),
                     onActionButtonClick: goToNextPage,
-                    isLastStep: false,
                   ),
                 ),
                 FormWrapper(
                   child: DynamicForm(
                     formKey: _pageFormKey[3]!,
-                    fields: arrivalDetails(
-                        initialValues: _visaApplicationData[3] ?? {}
-                    ),
+                    fields: arrivalDetails(initialValues: _visaApplicationData[3] ?? {}),
                     onActionButtonClick: () async {
                       _saveFormData();
                       await postVisaApplication();
                     },
                     isLastStep: true,
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -124,19 +121,19 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     // Save the form data if it's valid
     if (currentFormState?.saveAndValidate() ?? false) {
       setState(() {
-        _visaApplicationData[_currentPageIndex] =
-            currentFormState!.value;
+        _visaApplicationData[_currentPageIndex] = currentFormState!.value;
       });
     }
   }
 
-
   void goToNextPage() async {
-    await _saveFormData();
-    _pageController.nextPage(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
+    if (_pageFormKey[_currentPageIndex]!.currentState?.validate() ?? false) {
+      await _saveFormData();
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   Future<void> postVisaApplication() async {
@@ -196,7 +193,7 @@ class _VisaApplicationPageState extends State<VisaApplicationPage> {
     final arrivalDetails = visaApplicationData[3];
 
     Map<String, String> body = {
-      'user':'1',
+      'user': '1',
       'name': personalInfo['name'].toString(),
       'gender': personalInfo['gender'].toString(),
       'occupation': personalInfo['occupation'].toString(),

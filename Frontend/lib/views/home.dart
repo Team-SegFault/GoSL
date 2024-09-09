@@ -215,7 +215,7 @@ class VisaSimplified extends StatelessWidget {
                 text: "Apply Visa",
                 onPressed: () => {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => VisaApplicationPage(),
+                    builder: (context) => const VisaApplicationPage(),
                   ))
                 },
               )),
