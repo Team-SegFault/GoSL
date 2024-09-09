@@ -2,25 +2,23 @@ import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 
 class FormStepper extends StatelessWidget {
-  List<String> titles;
-  int activeStep;
+  final List<String> titles;
+  final int activeStep;
 
-  FormStepper(
-      {super.key,
-      required this.titles,
-      required this.activeStep});
+  const FormStepper({super.key, required this.titles, required this.activeStep});
 
   @override
   Widget build(BuildContext context) {
     return EasyStepper(
       activeStep: activeStep,
-      lineStyle: LineStyle(
+      lineStyle: const LineStyle(
           lineSpace: 0,
+          lineLength: 75,
           lineType: LineType.normal,
           finishedLineColor: Colors.orange,
-          activeLineColor: Colors.grey[200],
-          unreachedLineColor: Colors.grey[200]),
-      unreachedStepBackgroundColor: Colors.grey,
+          activeLineColor: Color(0xFFD9D9D9),
+          unreachedLineColor: Color(0xFFD9D9D9)),
+      unreachedStepBackgroundColor: const Color(0xFFD9D9D9),
       activeStepTextColor: Colors.black54,
       internalPadding: 0,
       showLoadingAnimation: false,
@@ -33,9 +31,7 @@ class FormStepper extends StatelessWidget {
               backgroundColor: Colors.transparent,
               child: CircleAvatar(
                 radius: 6,
-                backgroundColor: activeStep >= index
-                    ? Colors.orangeAccent
-                    : Colors.grey[200],
+                backgroundColor: activeStep >= index ? Colors.orangeAccent : const Color(0xFFD9D9D9),
               ),
             ),
             // title: activeStep == index ? _titles[index] : null,
@@ -46,9 +42,7 @@ class FormStepper extends StatelessWidget {
                       titles[index],
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: activeStep == index
-                            ? Colors.black
-                            : Colors.grey[200],
+                        color: activeStep == index ? Colors.black : Colors.grey[200],
                         fontSize: 10,
                       ),
                     ),
