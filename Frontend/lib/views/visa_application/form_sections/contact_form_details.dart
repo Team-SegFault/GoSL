@@ -7,6 +7,7 @@ List<Widget> contactDetailsFields({required initialValues}) {
     FormBuilderTextField(
       name: 'email',
       initialValue: initialValues['email'],
+      style: const TextStyle(fontSize: 13),
       validator: FormBuilderValidators.compose(
         [
           FormBuilderValidators.required(),
@@ -19,6 +20,8 @@ List<Widget> contactDetailsFields({required initialValues}) {
     FormBuilderTextField(
       name: 'phone',
       initialValue: initialValues['phone'],
+      style: const TextStyle(fontSize: 13),
+      keyboardType: TextInputType.phone,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: FormBuilderValidators.compose(
         [
@@ -32,6 +35,7 @@ List<Widget> contactDetailsFields({required initialValues}) {
     FormBuilderTextField(
       name: 'address',
       initialValue: initialValues['address'],
+      style: const TextStyle(fontSize: 13),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: FormBuilderValidators.required(),
       decoration: const InputDecoration(labelText: 'Residence Address'),

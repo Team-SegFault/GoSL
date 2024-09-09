@@ -11,6 +11,7 @@ List<Widget> arrivalDetails({required initialValues}) {
       initialValue: initialValues['visa_start_date'],
       decoration: const InputDecoration(labelText: 'Expected Arrival Date'),
       inputType: InputType.date,
+      style: const TextStyle(fontSize: 13),
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.dateTime(),
         FormBuilderValidators.required(),
@@ -23,6 +24,8 @@ List<Widget> arrivalDetails({required initialValues}) {
     FormBuilderTextField(
       name: 'visa_duration',
       initialValue: initialValues['visa_duration'],
+      style: const TextStyle(fontSize: 13),
+      keyboardType: TextInputType.number,
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(),
         FormBuilderValidators.numeric(errorText: "Please enter a number"),
@@ -38,6 +41,7 @@ List<Widget> arrivalDetails({required initialValues}) {
       name: 'past_travel_history',
       initialValue: initialValues['past_travel_history'],
       validator: FormBuilderValidators.required(),
+      style: const TextStyle(fontSize: 13),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(
         labelText: 'Travel History',

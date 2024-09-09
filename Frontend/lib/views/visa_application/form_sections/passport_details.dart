@@ -10,12 +10,14 @@ List<Widget> passportDetailsFields({required initialValues}) {
       name: 'passport_issue_country',
       initialValue: initialValues['passport_issue_country'],
       validator: FormBuilderValidators.required(),
+      style: const TextStyle(fontSize: 13),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(labelText: 'Country of Issue'),
     ),
     FormBuilderTextField(
       name: 'passport_number',
       initialValue: initialValues['passport_number'],
+      style: const TextStyle(fontSize: 13),
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.passport(),
         FormBuilderValidators.required(),
@@ -26,6 +28,7 @@ List<Widget> passportDetailsFields({required initialValues}) {
     FormBuilderDateTimePicker(
       name: 'passport_issue_date',
       initialValue: initialValues['passport_issue_date'],
+      style: const TextStyle(fontSize: 13),
       decoration: const InputDecoration(labelText: 'Issue Date'),
       inputType: InputType.date,
       validator: FormBuilderValidators.compose([
@@ -39,6 +42,7 @@ List<Widget> passportDetailsFields({required initialValues}) {
     FormBuilderDateTimePicker(
       name: 'passport_expiry_date',
       initialValue: initialValues['passport_expiry_date'],
+      style: const TextStyle(fontSize: 13),
       decoration: const InputDecoration(labelText: 'Expiry Date'),
       inputType: InputType.date,
       validator: FormBuilderValidators.compose([

@@ -10,6 +10,7 @@ List<Widget> personalInfoFields({required initialValues}) {
     FormBuilderTextField(
       name: 'name',
       initialValue: initialValues['name'],
+      style: const TextStyle(fontSize: 13),
       decoration: const InputDecoration(labelText: 'Name'),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: FormBuilderValidators.required(),
@@ -24,7 +25,10 @@ List<Widget> personalInfoFields({required initialValues}) {
           .map(
             (gender) => DropdownMenuItem(
               value: gender,
-              child: Text(gender),
+              child: Text(
+                gender,
+                style: const TextStyle(fontSize: 13),
+              ),
             ),
           )
           .toList(),
@@ -41,6 +45,7 @@ List<Widget> personalInfoFields({required initialValues}) {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(labelText: 'Date of Birth'),
       inputType: InputType.date,
+      style: const TextStyle(fontSize: 13),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     ),
@@ -54,7 +59,10 @@ List<Widget> personalInfoFields({required initialValues}) {
           .map(
             (gender) => DropdownMenuItem(
               value: gender,
-              child: Text(gender),
+              child: Text(
+                gender,
+                style: const TextStyle(fontSize: 13),
+              ),
             ),
           )
           .toList(),
@@ -69,7 +77,10 @@ List<Widget> personalInfoFields({required initialValues}) {
           .map(
             (gender) => DropdownMenuItem(
               value: gender,
-              child: Text(gender),
+              child: Text(
+                gender,
+                style: const TextStyle(fontSize: 13),
+              ),
             ),
           )
           .toList(),
