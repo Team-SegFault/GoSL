@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
-List<Widget> arrivalDetails({required initialValues}){
+List<Widget> arrivalDetails({required initialValues}) {
   return [
     // arrival date
     FormBuilderDateTimePicker(
@@ -11,6 +11,11 @@ List<Widget> arrivalDetails({required initialValues}){
       initialValue: initialValues['visa_start_date'],
       decoration: const InputDecoration(labelText: 'Expected Arrival Date'),
       inputType: InputType.date,
+      validator: FormBuilderValidators.compose([
+        FormBuilderValidators.dateTime(),
+        FormBuilderValidators.required(),
+      ]),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       initialDate: DateTime.now().add(const Duration(days: 1)),
       firstDate: DateTime.now(),
     ),
@@ -23,6 +28,7 @@ List<Widget> arrivalDetails({required initialValues}){
         FormBuilderValidators.numeric(errorText: "Please enter a number"),
         FormBuilderValidators.min(1),
       ]),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(
         labelText: 'Duration of Stay in Days',
       ),
@@ -31,6 +37,8 @@ List<Widget> arrivalDetails({required initialValues}){
     FormBuilderTextField(
       name: 'past_travel_history',
       initialValue: initialValues['past_travel_history'],
+      validator: FormBuilderValidators.required(),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: const InputDecoration(
         labelText: 'Travel History',
         helperText: 'Please provide a brief history of your travel',
