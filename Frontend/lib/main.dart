@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:GOSL/components/navbar.dart';
-import 'package:GOSL/controllers/navbar_controller.dart';
-import 'package:GOSL/views/mytrip.dart';
-import 'package:GOSL/views/home.dart';
-import 'package:GOSL/views/profileview.dart';
-import 'package:GOSL/views/wishlistview.dart';
+import 'package:GOSL/components/onboarding.dart';
 import 'package:GOSL/theme.dart';
-import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,39 +9,51 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GoSL',
       theme: theme,
-      home: MainPage(),
+      home: OnboardingPageView(),
     );
   }
 }
 
-
-class MainPage extends StatelessWidget {
-  MainPage({super.key});
-  final navbarController = Get.put(NavbarController());
-
-
+class OnboardingPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-        bottomNavigationBar: const CustomNavBar(),
-        body: Obx(() => <Widget>[
-              const HomePage(),
-              const MyTripPage(),
-              const WishListPage(),
-              const ProfilePage(),
-            ][navbarController.currentIndex.value]));
+    return PageView(
+      children: const [
+        OnBoarding(
+          backgroundImage: 'assets/images/onBoarding1.png',
+          title1: 'Sandy',
+          title2: 'Beaches',
+          description: 'Our beaches will remind you of paradise on earth.',
+          gradColor1: Color(0xff006045),
+          gradColor2: Color(0xff002017),
+          buttonText: 'Skip',
+        ),
+        OnBoarding(
+          backgroundImage: 'assets/images/onBoarding2.png',
+          title1: 'Rich',
+          title2: 'History',
+          description: 'Experience the remnants of the proud Sri Lankan history spanning over 2000 years',
+          gradColor1: Color(0xff51432F),
+          gradColor2: Color(0xff160D01),
+          buttonText: 'Skip',
+        ),
+        OnBoarding(
+          backgroundImage: 'assets/images/onBoarding3.png',
+          title1: 'Great',
+          title2: 'Food',
+          description: 'Experience the remnants of the proud Sri Lankan history spanning over 2000 years',
+          gradColor1: Color(0xff9C7960),
+          gradColor2: Color(0xff231919),
+          buttonText: 'Next',
+        ),
+        // Add more OnBoarding widgets here
+      ],
+    );
   }
 }
